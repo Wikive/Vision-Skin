@@ -8,15 +8,15 @@
             <title>{{imp[0]}} - {{imp[1][0]}}</title>
         {% endif %}
         <link rel="stylesheet" href="/views/vision/css/bootstrap.min.css.cache_v1">
-        <link rel="stylesheet" href="/views/vision/css/default.css.cache_v3">
-        <link rel="stylesheet" href="/views/vision/css/default_mobile.css.cache_v1">
+        <link rel="stylesheet" href="/views/vision/css/default.css.cache_v5">
+        <link rel="stylesheet" href="/views/vision/css/default_mobile.css.cache_v2">
         <link rel="stylesheet" href="/views/vision/css/jquery-ui.min.css.cache_v1">
         {{imp[3][3]|safe}}
-        <link rel="stylesheet" href="/views/vision/css/style.css.cache_v10">
-        <link rel="stylesheet" href="/views/vision/css/more.css.cache_v2">
+        <link rel="stylesheet" href="/views/vision/css/style.css.cache_v12">
+        <link rel="stylesheet" href="/views/vision/css/more.css.cache_v4">
         {% if request.cookies.get('main_css_darkmode', '') == '1' %}
             <link rel="stylesheet" href="/views/main_css/css/sub/dark.css.cache_v4">
-            <link rel="stylesheet" href="/views/vision/css/dark.css.cache_v4">
+            <link rel="stylesheet" href="/views/vision/css/dark.css.cache_v6">
         {% endif %}
         <link rel="shortcut icon" href="/image/favicon.ico">
         <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -141,6 +141,7 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="/change/skin_set"><span class="hide-title">{{'skin_set'|load_lang}}</span></a>
                             <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/alarm"><span class="hide-title">{{'alarm'|load_lang}} ({{imp[2][8]}})</span></a>
                             <a class="dropdown-item" href="/user"><span class="hide-title">{{'user_tool'|load_lang}}</span></a>
                             <a class="dropdown-item" href="/change"><span class="hide-title">{{'user_setting'|load_lang}}</span></a>
                             {% if imp[2][2] == 1 %}
@@ -179,37 +180,40 @@
             --><a class="scroll-button" href="#" id="scroll-button-left"><i class="fa fa-angle-up" aria-hidden="true"></i></a><!--
             --><a class="scroll-bottom" href="#powered" id="scroll-button-right"><i class="fa fa-angle-down" aria-hidden="true"></i></a>
         </div>
+        <div class="nav-tabbar">
+            <li><a class="nav-tabbar-item" href="/">
+                <i class="fa fa-solid fa-house-chimney"></i><br>
+                {{'main_page'|load_lang}}
+            </a></li>
+            <li><a class="nav-tabbar-item" href="/recent_changes">
+                <i class="fa fa-solid fa-compass"></i><br>
+                {{'recent_change'|load_lang}}
+            </a></li>
+            <li><a class="nav-tabbar-item" href="/recent_discuss">
+                <i class="fa fa-solid fa-comment-dots"></i><br>
+                {{'recent_discussion'|load_lang}}
+            </a></li>
+            <li><a class="nav-tabbar-item" href="/bbs/main">
+                <i class="fa fa-file-text"></i><br>
+                {{'bbs'|load_lang}}
+            </a></li>
+            <li><a class="nav-tabbar-item" href="/other">
+                <i class="fa fa-solid fa-toolbox"></i><br>
+                {{'tool'|load_lang}}
+            </a></li>
+            {% if imp[2][8] != '0' %}
+                <li><a class="nav-tabbar-item" id="nav-tabbar-color" href="/alarm">
+                    <i class="fa fa-solid fa-bell"></i><br>
+                    {{'alarm'|load_lang}} ({{imp[2][8]}})
+                </a></li>
+            {% else %}
+                <li><a class="nav-tabbar-item" href="/alarm">
+                    <i class="fa fa-solid fa-bell"></i><br>
+                    {{'alarm'|load_lang}}
+                </a></li>
+            {% endif %}
+        </div>
         <div class="content-wrapper">
-            <div class="vision-sidebar">
-                <div class="vision-right-fixed">
-                    <div class="live-recent">
-                        <div class="live-recent-header">
-                            <ul class="nav nav-tabs">
-                                <li class="nav-item">
-                                    <a href="javascript:vision_side_load('A');" class="nav-link active" id="vision-recent-tab1">{{'recent_change'|load_lang}}</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="javascript:vision_side_load('B');" class="nav-link" id="vision-recent-tab2">{{'recent_discussion'|load_lang}}</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="live-recent-content">
-                            <ul class="live-recent-list" id="live-recent-list">
-                                {% for i in range(10) %}
-                                    <li><span class="recent-item">&nbsp;</span></li>
-                                {% endfor %}
-                            </ul>
-                        </div>
-                        <div class="live-recent-footer">
-                            <a id="vision_recent_link" href="/recent_changes" title="{{'recent_change'|load_lang}}">
-                                <span class="label label-info">{{imp[1][0]}} 최근 편집</span>
-                            </a>
-                        </div>
-                        <div class="right-ads">
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="container-fluid vision-content">
                 <div class="vision-content-header">
                     {% if not menu == 0 %}
@@ -241,6 +245,36 @@
                 </div>
                 <div class="vision-content-main wiki-article">
                     {{data|safe}}
+                </div>
+            </div>
+            <div class="vision-sidebar">
+                <div class="vision-right-fixed">
+                    <div class="live-recent">
+                        <div class="live-recent-header">
+                            <ul class="nav nav-tabs">
+                                <li class="nav-item">
+                                    <a href="javascript:vision_side_load('A');" class="nav-link active" id="vision-recent-tab1">{{'recent_change'|load_lang}}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="javascript:vision_side_load('B');" class="nav-link" id="vision-recent-tab2">{{'recent_discussion'|load_lang}}</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="live-recent-content">
+                            <ul class="live-recent-list" id="live-recent-list">
+                                {% for i in range(10) %}
+                                    <li><span class="recent-item">&nbsp;</span></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="live-recent-footer">
+                            <a id="vision_recent_link" href="/recent_changes" title="{{'recent_change'|load_lang}}">
+                                <span class="label label-info">{{imp[1][0]}} 최근 편집</span>
+                            </a>
+                        </div>
+                        <div class="right-ads">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

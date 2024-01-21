@@ -241,6 +241,10 @@ del, s, strike {
     border-bottom-left-radius: 1rem;
 } /* ♥ */
 
+.vision .nav-wrapper .navbar .form-inline button {
+    border-color: var(--border-color);
+}
+
 .vision .nav-wrapper .navbar .form-inline .form-control:focus {
     border-right-color: var(--border-color);
 }
@@ -314,7 +318,7 @@ del, s, strike {
 } /* ♥ */
 
 .login-dropdown-name {
-    padding: 0.2rem 0.8rem 0.2rem 0;
+    padding: 0.2rem 0.8rem 0.2rem 0.2rem;
     text-align: right;
 } /* ♥ */
 
@@ -323,6 +327,7 @@ del, s, strike {
     font-weight: 700;
     margin-top: -0.3rem;
     margin-bottom: 0.1rem;
+    white-space: nowrap;
 } /* ♥ */
 
 .login-dropdown-name2 {
@@ -349,7 +354,7 @@ del, s, strike {
 
 .nav-dropdown-menu:after,
 .vision .nav-wrapper .navbar .navbar-login .login-dropdown-menu:after {
-    border-bottom-color: #fff;
+    border-bottom-color: #f7f7f7;
     border-width: 0.7rem;
     left: auto;
     right: 0.81rem;
@@ -618,7 +623,7 @@ del, s, strike {
 /* 컨텐츠 하단 수정 */
 .vision-footer {
     background-color: #f6f6f6;
-    padding: 1rem;
+    padding: 2.3rem 1rem 6rem 1rem;
     width: 100%;
     margin: 0 auto;
     text-align: center;

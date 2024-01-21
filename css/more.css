@@ -31,12 +31,15 @@ li {
 
 /* 인용문 */
 blockquote {
-	background: #eee;
-	border: 2px dashed #ccc;
-	border-left: 5px solid #71bc6d;
+	background: #f2f2f2;
+	border: 1px #ccc;
+	border-left: 5px solid #696FFF;
+	border-right: 5px solid #696FFF;
 	display: table;
-	margin: 1em 0;
-	padding: 1em;
+	margin: 1rem 0;
+	padding: 1rem;
+	border-radius: 16px;
+	word-break: keep-all;
 }
 
 /* 분류, 넘겨주기 알림 */
@@ -58,6 +61,7 @@ blockquote {
     font-size: 0.92rem;
     padding: 7px 7px 7px 12px;
     display: inline-block;
+	color: #666;
     width: 100%;
 	margin-bottom: 0;
 }
@@ -120,6 +124,61 @@ blockquote {
 	.opennamu_comment {
 		width: 100%;
 	}
+}
+
+/* 탭바 디자인 */
+@media (min-width: 799px) {
+	.nav-tabbar {
+		display: none;
+	}
+}
+
+/* 태블릿 이전까지만 표시 */
+@media (max-width: 798px) {
+    .nav-tabbar {
+        position: fixed;
+		margin: 0 13px;
+		padding: 0 9px;
+        bottom: 18px;
+		height: 54px;
+		width: calc(100% - 26px);
+		text-align: center;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		border: 2px solid #efefef;
+		background: #fbfbfb;
+		border-radius: 20px;
+    }
+
+	.nav-tabbar li {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		display: block;
+		float: left;
+		width: 15%;
+		font-size: 9px;
+	}
+
+	a.nav-tabbar-item {
+		cursor: pointer;
+		text-decoration-line: none;
+		color: var(--main-color);
+	}
+
+	.nav-tabbar .fa {
+		font-size: 20px;
+		margin: 4px 0 3px;
+	}
+
+	.nav-tabbar #nav-tabbar-color {
+		color: #F74646;
+	}
+
+    div.scroll-buttons {
+        bottom: 76px;
+    }
 }
 
 /* 폰트 불러오기 */

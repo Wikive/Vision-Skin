@@ -11,7 +11,7 @@
     .vision .nav-wrapper .navbar .form-inline {
         float: left;
         padding: 0;
-        padding-bottom: 0.5rem;
+        padding-bottom: 0.37rem;
     } /* ♥ */
 
     .vision .nav-wrapper .navbar .form-inline .input-group {
@@ -50,8 +50,8 @@
     }
 
     .vision .content-wrapper .vision-content .vision-content-header .title {
-        padding: 0.5rem;
-    }
+        padding: 0.5rem 0.5rem 0.1rem;
+    } /* ♥ */
 
     .vision .content-wrapper .vision-content .vision-content-header .contentSub {
         margin-top: -0.25rem;

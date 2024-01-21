@@ -230,3 +230,13 @@ h1, h2, h3, h4, h5, h6 hr,
 textarea, input, button, select {
     border-color: #555;
 }
+
+.nav-tabbar, a.nav-tabbar-item {
+    background-color: #1F2023;
+    border-color: #555;
+    color: #ddd;
+}
+
+blockquote {
+    border-color: #eee;
+}

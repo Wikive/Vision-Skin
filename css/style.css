@@ -80,15 +80,10 @@ td {
 
 #toc-name, .opennamu_TOC_title {
     font-size: 1.25rem;
-
     display: block;
-
-    width: calc(100% + 40px);
-    
     margin-left: -8px;
     margin-top: -10px;
     margin-bottom: -40px;
-
     padding-top: 10px;
     padding-bottom: 8px;
 } /* ♥ */
@@ -107,15 +102,17 @@ div.scroll-buttons a {
 
 #scroll-button-toc {
     margin-right: -2px;
-    border-radius: 0.7rem 0 0 0.7rem;
+    border-radius: 20px 0 0 20px;
 } /* ♥ */
 
 #scroll-button-left {
     margin-right: -2px;
+    font-size: 19.7px;
 } /* ♥ */
 
 #scroll-button-right {
-    border-radius: 0 0.7rem 0.7rem 0;
+    border-radius: 0 20px 20px 0;
+    font-size: 19.7px;
 } /* ♥ */
 
 div.scroll-buttons {
@@ -123,10 +120,10 @@ div.scroll-buttons {
     float: right;
     height: 45px;
     text-align: right;
-    font-size: 1.6rem;
+    font-size: 1.3rem;
     z-index: 10000;
-    bottom: 1rem;
-    right: 1rem;
+    bottom: 16px;
+    right: 16px;
     opacity: 0.8;
 } /* ♥ */
 
@@ -157,50 +154,44 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 button {
-    border: 1px solid #aaa;
-    padding: 5px 10px 5px 10px;
-    border-radius: 3px;
-    background: white;
+    padding: 0.4rem 0.8rem;
+    background: #efefef;
+    border: none;
+    border-radius: 1rem;
 }
 
 button:hover {
-    background-color: white;
+    background-color: #f2f2f2;
 }
 
 button#save, button#opennamu_save_button {
-    background-color: #0275d8;
-    border-color: #0275d8;
+    background-color: #696FFF;
     color: white;
     margin-right: 5px;
 }
 
 button#save:hover, button#opennamu_save_button:hover {
-    background-color: #025aa5;
-    border-color:#025aa5;
+    background-color: #8183d3;
 }
 
 button#preview, button#opennamu_preview_button {
-    background-color: #5bc0de;
-    border-color: #5bc0de;
+    background-color: #8ca5ec;
     color: white;
 }
 
 button#preview:hover, button#opennamu_preview_button:hover {
-    background-color: #31b0d5;
-    border-color: #31b0d5;
+    background-color: #98a9d6;
     color: white;
 }
 
 button#come {
     background-color: #f0ad4e;
-    border-color: #f0ad4e;
     color: white;
     margin-left: 5px;
 }
 
 button#come:hover {
     background-color: #ec971f;
-    border-color: #ec971f;
     color: white;
 }
 
@@ -267,4 +258,9 @@ ul#live-recent-list li {
 
 th[rowspan], td[rowspan] {
     position: initial;
+}
+
+.nav-tabbar {
+    position: fixed;
+    bottom: 18px;
 }
