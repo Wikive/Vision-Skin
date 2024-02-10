@@ -61,7 +61,7 @@ function ringo_do_skin_set() {
     if(window.localStorage.getItem('main_css_fixed_width') && window.localStorage.getItem('main_css_fixed_width') !== '') {
         let fixed_width_data = window.localStorage.getItem('main_css_fixed_width');
         document.getElementById('ringo_add_style').innerHTML += `
-            .vision .nav-wrapper .navbar, .vision .content-wrapper {
+            .vision .nav-wrapper .navbar, .vision .content-wrapper, .vision-footer p, .vision-footer #powered {
                 max-width: ` + fixed_width_data + `px;
             }
 

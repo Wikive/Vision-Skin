@@ -625,11 +625,16 @@ del, s, strike {
 .vision-footer {
     background-color: var(--bg-color-3);
     color: var(--text-color);
-    max-width: 1420px;
     padding: 2.3rem 1.3rem 6rem 1.3rem;
     width: 100%;
     margin: 0 auto;
     text-align: left;
+}
+
+.vision-footer p, .vision-footer #powered {
+    max-width: 1420px;
+    margin: 0 auto;
+    padding: 0 1rem;
 }
 
 .vision-footer ul {
