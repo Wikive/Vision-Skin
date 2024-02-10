@@ -18,6 +18,7 @@
             <link rel="stylesheet" href="/views/main_css/css/sub/dark.css.cache_v4">
             <link rel="stylesheet" href="/views/vision/css/dark.css.cache_v6">
         {% endif %}
+        <style id="ringo_add_style"></style>
         <link rel="shortcut icon" href="/image/favicon.ico">
         <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
@@ -175,6 +176,9 @@
                 </form>
             </nav>
         </div>
+        <div class="menu-buttons">
+            <a class="scroll-menu" href="#sidebar"><i class="fa fa-solid fa-bars"></i></a>
+        </div>
         <div class="scroll-buttons">
             <a class="scroll-toc" href="#toc" id="scroll-button-toc"><i class="fa fa-list-ul" aria-hidden="true"></i></a><!--
             --><a class="scroll-button" href="#" id="scroll-button-left"><i class="fa fa-angle-up" aria-hidden="true"></i></a><!--
@@ -247,33 +251,94 @@
                     {{data|safe}}
                 </div>
             </div>
-            <div class="vision-sidebar">
+            <div class="vision-sidebar" id="sidebar">
                 <div class="vision-right-fixed">
-                    <div class="live-recent">
-                        <div class="live-recent-header">
-                            <ul class="nav nav-tabs">
-                                <li class="nav-item">
-                                    <a href="javascript:vision_side_load('A');" class="nav-link active" id="vision-recent-tab1">{{'recent_change'|load_lang}}</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="javascript:vision_side_load('B');" class="nav-link" id="vision-recent-tab2">{{'recent_discussion'|load_lang}}</a>
-                                </li>
-                            </ul>
+                    <div class="sidebar-0">
+                        <a class="sidebar-0-title" href="/user">{{'user'|load_lang}} <i class="fa fa-solid fa-angle-right"></i></a>
+                        <div class="sidebar-0-account">
+                            <div class="sidebar-0-profile">
+                                {% if imp[2][2] == 0 %}
+                                <span class="fa fa-user-large"></span>
+                                {% elif imp[2][4] != '' %}
+                                    <img class="profile-img" src="https://secure.gravatar.com/avatar/{{imp[2][4]|md5_replace}}?d=retro">
+                                {% else %}
+                                    <img class="profile-img" src="https://secure.gravatar.com/avatar/00000000000000000000000000000000?d=retro&f=y">
+                                {% endif %}
+                            </div>
+                            <div class="sidebar-0-name">
+                                <div class="sidebar-0-name1">
+                                    {{imp[2][10]}}
+                                </div>
+                                <div class="sidebar-0-name2">
+                                    {% if imp[2][2] == 1 %}
+                                        {% if imp[2][6] == '1' %}
+                                            {% if 'owner' in imp[2][9] %}
+                                                Owner
+                                            {% else %}
+                                                Admin
+                                            {% endif %}
+                                        {% else %}
+                                            Member
+                                        {% endif %}
+                                    {% else %}
+                                        IP User
+                                    {% endif %}
+                                </div>
+                            </div>
                         </div>
-                        <div class="live-recent-content">
-                            <ul class="live-recent-list" id="live-recent-list">
-                                {% for i in range(10) %}
-                                    <li><span class="recent-item">&nbsp;</span></li>
-                                {% endfor %}
-                            </ul>
-                        </div>
-                        <div class="live-recent-footer">
-                            <a id="vision_recent_link" href="/recent_changes" title="{{'recent_change'|load_lang}}">
-                                <span class="label label-info">{{imp[1][0]}} 최근 편집</span>
+                        <div class="sidebar-0-tool">
+                            {% if imp[2][8] != '0' %}
+                                <a class="sidebar-0-item" id="nav-tabbar-color" href="/alarm">
+                                    <i class="fa fa-solid fa-bell"></i>
+                                    <span class="sidebar-0-item-sub">
+                                        {{imp[2][8]}}
+                                    </span> 
+                            {% else %}
+                                <a class="sidebar-0-item" href="/alarm">
+                                    <i class="fa fa-solid fa-bell"></i>
+                                </a>
+                            {% endif %}
+                            <a class="sidebar-0-item" href="/skin_set">
+                                <i class="fa fa-solid fa-gears"></i>
+                            </a>
+                            <a class="sidebar-0-item" href="/change">
+                                <i class="fa fa-solid fa-pen-to-square"></i>
+                            </a>
+                            <a class="sidebar-0-item" href="/star_doc">
+                                <i class="fa fa-solid fa-heart"></i>
+                            </a>
+                            <a class="sidebar-0-item" href="/logout">
+                                <i class="fa fa-solid fa-right-from-bracket"></i>
                             </a>
                         </div>
-                        <div class="right-ads">
-                        </div>
+                    </div>
+                    <div class="sidebar-1">
+                        <a class="sidebar-1-title" href="/recent_changes"> {{'recent_change'|load_lang}} <i class="fa-solid fa-angle-right"></i></a>
+                        <ul class="sidebar-1-list" id="sidebar-1-list">
+                            {% for i in range(12) %}
+                                <li><span id="sidebar-1-item">&nbsp;</span></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="right-ads-1">
+                    </div>
+                    <div class="sidebar-2">
+                        <a class="sidebar-2-title" href="/recent_discuss"> {{'recent_discussion'|load_lang}} <i class="fa-solid fa-angle-right"></i></a>
+                        <ul class="sidebar-2-list" id="sidebar-2-list">
+                            {% for i in range(5) %}
+                                <li><span id="sidebar-2-item">&nbsp;</span></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="sidebar-3">
+                        <a class="sidebar-3-title" href="https://2du.pythonanywhere.com/w/오픈나무%20공용"> 연합 {{'recent_change'|load_lang}} <i class="fa-solid fa-angle-right"></i></a>
+                        <ul class="sidebar-3-list" id="sidebar-3-list">
+                            {% for i in range(10) %}
+                                <li><span id="sidebar-3-item">&nbsp;</span></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="right-ads-2">
                     </div>
                 </div>
             </div>
@@ -283,7 +348,7 @@
                 {{imp[1][1]|safe}}
             </p>
             <div id="powered">
-                <a href="https://github.com/daol-project/Vision-skin">Vision</a> | <a href="https://github.com/openNAMU/openNAMU">openNAMU</a>
+                Powered by <a href="https://github.com/daol-project/Vision-skin">Vision</a>, Designed by <a href="https://github.com/openNAMU/openNAMU">openNAMU</a>.
             </div>
         </div>
     </body>

@@ -1,23 +1,19 @@
-html {
-    scroll-behavior: smooth;
-}
-
 /* 문단 */
 h1, h2, h3, h4, h5, h6 {
     margin: 1.2em 0 0.6em;
     padding-bottom: 7px;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid var(--sub-border-color);
 }
 
 /* 수평선 */
 hr {
 	margin: 1rem 0;
-    border-color: #ccc;
+    border-color: var(--sub-border-color);
 }
 
 /* 링크 */
 .opennamu_link_out, .opennamu_link_inter {
-    color: #090;
+    color: var(--link-color);
 }
 
 /* 리스트 */ 
@@ -31,10 +27,10 @@ li {
 
 /* 인용문 */
 blockquote {
-	background: #f2f2f2;
-	border: 1px #ccc;
-	border-left: 5px solid #696FFF;
-	border-right: 5px solid #696FFF;
+	background: var(--bg-color-1);
+	border: 1px var(--sub-border-color);
+	border-left: 5px solid var(--menu-button-color);
+	border-right: 5px solid var(--menu-button-color);
 	display: table;
 	margin: 1rem 0;
 	padding: 1rem;
@@ -42,9 +38,37 @@ blockquote {
 	word-break: keep-all;
 }
 
+/* 디자인 강제 지정 */
+a {
+	color: var(--a-color);
+}
+
+summary {
+    list-style: none !important;
+    font-weight: bold !important;
+}
+
+td {
+    padding: 5px 10px !important;
+	border: 1px solid var(--border-color);
+}
+
+.opennamu_render_complete {
+    font-size: 14.4px !important;
+    line-height: 25px !important;
+}
+
+.table_safe {
+    margin: 10px 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 /* 분류, 넘겨주기 알림 */
 #cate, .opennamu_category {
-    border: 1px solid #ccc;
+    border: 1px solid var(--sub-border-color);
     border-radius: 15px;
     font-size: 0.9rem;
     margin-top: 1rem;
@@ -54,14 +78,14 @@ blockquote {
     width: 100%;
 }
 
-#redirect {
-	background-color: #f7f7f7;
-    border: 1px solid #ccc;
+#redirect, .opennamu_trace {
+	background-color: var(--bg-color-3);
+    border: 1px solid var(--sub-border-color);
     border-radius: 15px;
     font-size: 0.92rem;
     padding: 7px 7px 7px 12px;
     display: inline-block;
-	color: #666;
+	color: var(--text-color-2);
     width: 100%;
 	margin-bottom: 0;
 }
@@ -126,6 +150,50 @@ blockquote {
 	}
 }
 
+/* 메뉴 버튼 디자인 */
+/* 데스크톱 이전까지만 표시 */
+@media (min-width: 1024px) {
+	div.menu-buttons {
+		display: none;
+	}
+}
+
+/* 태블릿까지 */
+@media (max-width: 1023px) {
+	div.menu-buttons {
+		position: fixed;
+		float: left;
+		height: 45px;
+		text-align: left;
+		font-size: 1.3rem;
+		z-index: 10000;
+		bottom: 16px;
+		left: 16px;
+		opacity: 0.8;
+	}
+	
+	div.menu-buttons a {
+		display: inline-block;
+		width: 45px;
+		height: 45px;
+		line-height: 43px;
+		border: 2px solid var(--button-border-color);
+		text-decoration: none;
+		text-align: center;
+		background: var(--main-color);
+		color: white;
+		border-radius: 20px;
+	}
+}
+
+/* 모바일에서 탭바로 인한 간격 조정 */
+@media (max-width: 798px) {
+	div.menu-buttons {
+		bottom: 76px;
+	}
+}
+
+
 /* 탭바 디자인 */
 @media (min-width: 799px) {
 	.nav-tabbar {
@@ -137,6 +205,7 @@ blockquote {
 @media (max-width: 798px) {
     .nav-tabbar {
         position: fixed;
+		z-index: 10000;
 		margin: 0 13px;
 		padding: 0 9px;
         bottom: 18px;
@@ -146,8 +215,8 @@ blockquote {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		border: 2px solid #efefef;
-		background: #fbfbfb;
+		border: 2px solid var(--button-border-color);
+		background: var(--bg-color-2);
 		border-radius: 20px;
     }
 
@@ -164,7 +233,7 @@ blockquote {
 	a.nav-tabbar-item {
 		cursor: pointer;
 		text-decoration-line: none;
-		color: var(--main-color);
+		color: var(--menu-button-color);
 	}
 
 	.nav-tabbar .fa {

@@ -1,6 +1,8 @@
 /* 부트스트랩 기본 폰트가 16이라 기본폰트 15인 리버티스킨은 bootstrap 반응형 부분을 쓰기가 힘듬
    그래서 그냥 px로 때려박는걸로
 */
+/* 1300px 이하 */
+@media (max-width: 1300px) {}
 
 /* Max-width: 1023 데스크탑 마지노선 */
 @media (max-width: 1023px) {
@@ -12,7 +14,7 @@
         float: left;
         padding: 0;
         padding-bottom: 0.37rem;
-    } /* ♥ */
+    }
 
     .vision .nav-wrapper .navbar .form-inline .input-group {
         display: table;
@@ -27,16 +29,18 @@
         width: 1%;
     }
 
-    /* ♥ */
+    .vision .content-wrapper {
+        flex-direction: column;
+    }
 
     .vision .content-wrapper .vision-sidebar {
-        display: none;
+        width: 100%;
     }
 
     .vision .content-wrapper .vision-content {
         margin-right: auto;
+        max-width: 100%;
     }
-    /* ♥ */
 
     .vision .content-wrapper .vision-content .vision-content-header .vision-notice {
         margin: 0.5rem;
@@ -45,13 +49,13 @@
     .vision .content-wrapper .vision-content .vision-content-header .content-tools {
         float: none;
         text-align: right;
-        border-bottom: 1px solid #e1e8ed;
+        border-bottom: 1px solid var(--border-color);
         padding: 0.5rem;
     }
 
     .vision .content-wrapper .vision-content .vision-content-header .title {
         padding: 0.5rem 0.5rem 0.1rem;
-    } /* ♥ */
+    }
 
     .vision .content-wrapper .vision-content .vision-content-header .contentSub {
         margin-top: -0.25rem;
@@ -84,8 +88,8 @@
     .vision .content-wrapper .vision-content .bottom-ads {
         padding: 0.5rem;
         background-color: #fff;
-        border-left: 1px solid #e1e8ed;
-        border-right: 1px solid #e1e8ed;
+        border-left: 1px solid var(--border-color);
+        border-right: 1px solid var(--border-color);
     }
 
     .vision .content-wrapper .vision-footer {

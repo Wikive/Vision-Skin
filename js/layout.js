@@ -1,8 +1,5 @@
-//윈도우 사이즈에 따라 변경을 할지 않할 지 체크한다.
-let isAllowRequestList = true;
-let vision_load_type = 'A';
-
-function vision_do_func_xss_encode(data) {
+// func
+function ringo_do_xss_encode(data) {
     data = data.replace(/'/g, '&#x27;');
     data = data.replace(/"/g, '&quot;');
     data = data.replace(/</g, '&lt;');
@@ -11,120 +8,68 @@ function vision_do_func_xss_encode(data) {
     return data;
 }
 
-//매개 변수 parent는 ul태그여야 합니다
-function ShowAjaxRecentList(parent) {
-    function temp() {
-	if(vision_load_type === 'A') {
-	        jQuery.ajax({
-	            url: "https://namgall.wikiing.in/api/open_recent_changes", // 수정된 API URL
-	            dataType: 'json'
-	        }).done(function (res) {
-	            var html = "";
-	            for (var i = 0; i < res.length && i < 10; i++) {
-	                var item = res[i];
-	                html += '<li><a class="recent-item" href="'+ item[8] + encodeURIComponent(item[1]) + '" title="' + vision_do_func_xss_encode(item[1]) + '">';
-	                var text = item[1];
-	                if (text.length > 18) {
-	                    text = text.substr(0, 18);
-	                    text += "...";
-	                }
-	                html += text;
-	                html += "</a></li>";
-	            }
-	                
-	            if(parent != null) {
-	                jQuery(parent).html(html);
-	            }
-	        });
-        } else {
-            jQuery.ajax({
-                url: "/api/recent_discuss/10", // 호출 URL
-                dataType:'json'
-            }).done(function(res) {
-                let html = "";
-                for(let i = 0; i < res.length && i < 10; i++) {
-                    let item = res[i];
+function ringo_do_url_encode(data) {
+    return encodeURIComponent(data);
+}
 
-                    html += '<li><a class="recent-item" href="/thread/' + encodeURIComponent(item[3]) + '" title="' + vision_do_func_xss_encode(item[1]) +'">';
-                    html += "[" + item[2].replace(/^([^ ]+) /, '') + "] ";
-                    let text = item[1];
-                    if(text.length > 13) {
-                        text = text.substr(0, 13);
-                        text +="...";
-                    }
-                    html += vision_do_func_xss_encode(text);
-                    html += "</a></li>";
-                }
-                
-                if(parent != null) {
-                    jQuery(parent).html(html);
-                }
-            });
+// event
+ringo_do_side_button_1();
+ringo_do_side_button_2();
+ringo_do_side_button_3();
+
+function ringo_do_side_button_1() {
+    fetch("/api/recent_change/12").then(function(res) {
+        return res.json();
+    }).then(function(text) {
+        let data = '';
+        for(let for_a = 0; for_a < text.length; for_a++) {
+            if(text[for_a][6] === '') {
+                data += '<li><a class="recent-item" href="/w/'+ ringo_do_xss_encode(text[for_a][1]) + '">' + ringo_do_xss_encode(text[for_a][1]);
+                data += '<span class="recent-time">' + ringo_do_xss_encode(text[for_a][2].replace(/^([^ ]+) /, '')) + '</span></a></li>'
+            } else {
+                data += '---<br>';
+                data += '--- | ---<br>';
+            }
         }
-	}
-	temp();
+        document.getElementById('sidebar-1-list').innerHTML = data;
+    }).catch(function(error) {
+        document.getElementById('sidebar-1-item').innerHTML = 'API를 불러오지 못했습니다!';
+    });
 }
 
-function vision_side_load(get_type) {
-    vision_load_type = get_type;
-    if(get_type === 'A') {
-        $( this ).addClass( 'active' );
-		$( '#vision-recent-tab2' ).removeClass( 'active' );
-        
-        document.getElementById('vision_recent_link').href = "/recent_changes";
-    } else {
-        $( this ).addClass( 'active' );
-		$( '#vision-recent-tab1' ).removeClass( 'active' );
-        
-        document.getElementById('vision_recent_link').href = "/recent_discuss"
-    }
-    
-    ShowAjaxRecentList(jQuery("#live-recent-list"));
+function ringo_do_side_button_2() {
+    fetch("/api/recent_discuss/6").then(function(res) {
+        return res.json();
+    }).then(function(text) {
+        let data = '';
+        for(let for_a = 0; for_a < text.length; for_a++) {
+            data += '<li><a class="recent-item" href="/thread/' + ringo_do_url_encode(text[for_a][3]) + '">' + ringo_do_xss_encode(text[for_a][1]);
+            data += '<span class="recent-time">' + ringo_do_xss_encode(text[for_a][2].replace(/^([^ ]+) /, '')) + '</span></a></li>'
+        }
+        document.getElementById('sidebar-2-list').innerHTML = data;
+    }).catch(function(error) {
+        document.getElementById('sidebar-2-item').innerHTML = 'API를 불러오지 못했습니다!';
+    });
 }
 
-/**
- * Vector-specific scripts
- */
-var recentIntervalHandle = null;
-jQuery( function ( jQuery ) {
-	var width = jQuery(window).width();
-	if(width > 1023) {
-		isAllowRequestList = true;
-		ShowAjaxRecentList(jQuery("#live-recent-list"));
-	}
-	else {
-		isAllowRequestList = false;
-	}
-
-	//만약에 화면의 사이즈가 작아 최근 변경글이 안보일 시, 갱신을 하지 않는다.
-	jQuery(window).resize(recentIntervalCheck);
-});
-
-var recentIntervalCheck = function() {
-	var width = jQuery(window).width();
-	if(width <= 1023) {
-		if(recentIntervalHandle != null) {
-			clearInterval(recentIntervalHandle);
-			recentIntervalHandle = null;
-		}
-		isAllowRequestList = false;
-	} else {
-		if(recentIntervalHandle == null) {
-			recentIntervalHandle = setInterval(function() {
-				ShowAjaxRecentList(jQuery("#live-recent-list"));
-			}, 60 * 1000);
-		}
-		isAllowRequestList = true;
-	}
+function ringo_do_side_button_3() {
+    fetch("https://namgall.wikiing.in/api/open_recent_changes/10").then(function(res) {
+        return res.json();
+    }).then(function(text) {
+        let data = '';
+        for(let for_a = 0; for_a < text.length; for_a++) {
+            data += '<li><a class="recent-item" href="'+ text[for_a][8] + ringo_do_xss_encode(text[for_a][1]) + '">' + "[" + ringo_do_xss_encode(text[for_a][7]) + "] " + ringo_do_xss_encode(text[for_a][1]);
+            data += '<span class="recent-time">' + ringo_do_xss_encode(text[for_a][2].replace(/^([^ ]+) /, '')) + '</span></a></li>'
+        }
+        document.getElementById('sidebar-3-list').innerHTML = data;
+    }).catch(function(error) {
+        document.getElementById('sidebar-3-item').innerHTML = 'API를 불러오지 못했습니다!';
+    });
 }
 
-jQuery(document).ready(function(jQuery) {
-	recentIntervalCheck();
-});
-
+// Dropdown
 $( function () {
 	'use strict';
-	/* Dropdown fade in */
 	$( '.dropdown' ).on( 'show.bs.dropdown', function () {
 		$( this ).find( '.dropdown-menu' ).first().stop( true, true ).fadeToggle( 200 );
 	} );
@@ -140,5 +85,4 @@ $( function () {
 	$( '.btn-group' ).on( 'hide.bs.dropdown', function () {
 		$( this ).find( '.dropdown-menu' ).first().stop( true, true ).fadeToggle( 200 );
 	} );
-	/* Dropdown fade in End */
 } );

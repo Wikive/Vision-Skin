@@ -1,11 +1,11 @@
 .main_title_a, .main_title_a:hover, .main_title_a:active {
     font-size: 30px;
-    color: #000;
-} /* ♥ */
+    color: var(--text-color);
+}
 
 .opennamu_ul {
     padding-left: 0.7rem;
-} /* ♥ */
+}
 
 .btn.btn-secondary.tools-btn.dropdown-toggle {
     height: 34px;
@@ -17,20 +17,20 @@
 
 select {
     display: inline-block;
-    padding: 0.2rem 0.4rem;
+    padding: 0.4rem 0.5rem;
     font-size: 1rem;
     line-height: 1.5;
-    color: #55595c;
-    background-color: #fff;
+    color: var(--text-color);
+    background-color: var(--bg-color-0);
     background-image: none;
-    border: 1px solid #ccc;
-    border-radius: .25rem;
+    border: 1px solid var(--sub-border-color);
+    border-radius: 14px;
 }
 
 input {
     border: 1px solid #e1e8ed;
-    padding: 5px;
-    border-radius: 3px;
+    padding: 5px 8px;
+    border-radius: 16px;
 }
 
 .font-size-1 {
@@ -43,18 +43,18 @@ form#searchform {
 
 button#searchGoButton {
     height: 2.3rem;
-} /* ♥ */
+}
 
 button#searchSearchButton {
     height: 2.3rem;
-} /* ♥ */
+}
 
 h1#main_title {
     margin-bottom: 0;
     margin-top: 0.3rem;
     padding-bottom: 4px;
     border-bottom: none;
-} /* ♥ */
+}
 
 a.navbar-brand {
     width: auto;
@@ -67,16 +67,16 @@ blockquote {
 
 td {
     padding: 5px 10px;
-} /* ♥ */
+}
 
 #toc, .opennamu_TOC {
-    border: 1px solid #ccc;
+    border: 1px solid var(--sub-border-color);
     display: inline-block;
     padding: 20px 26px 22px 20px;
     font-size: 15px;
     margin-bottom: 20px;
     border-radius: 20px;
-} /* ♥ */
+}
 
 #toc-name, .opennamu_TOC_title {
     font-size: 1.25rem;
@@ -86,34 +86,34 @@ td {
     margin-bottom: -40px;
     padding-top: 10px;
     padding-bottom: 8px;
-} /* ♥ */
+}
 
 div.scroll-buttons a {
     display: inline-block;
     width: 45px;
     height: 45px;
     line-height: 43px;
-    border: 2px solid #efefef;
+    border: 2px solid var(--button-border-color);
     text-decoration: none;
     text-align: center;
     background: var(--main-color);
     color: white;
-} /* ♥ */
+}
 
 #scroll-button-toc {
     margin-right: -2px;
     border-radius: 20px 0 0 20px;
-} /* ♥ */
+}
 
 #scroll-button-left {
     margin-right: -2px;
     font-size: 19.7px;
-} /* ♥ */
+}
 
 #scroll-button-right {
     border-radius: 0 20px 20px 0;
     font-size: 19.7px;
-} /* ♥ */
+}
 
 div.scroll-buttons {
     position: fixed;
@@ -125,7 +125,7 @@ div.scroll-buttons {
     bottom: 16px;
     right: 16px;
     opacity: 0.8;
-} /* ♥ */
+}
 
 .scroll-buttons .fa {
     margin-top: 5px;
@@ -135,18 +135,18 @@ div.scroll-buttons {
     padding: 5px 2px;
     margin-right: 1.5px;
     background: transparent;
-    background: green;
-    color: #fff;
+    background: var(--link-color);
+    color: var(--text-color);
     content: "\f0c1";
     font-size: 0.8em;
     font-family: FontAwesome;
-} /* ♥ */
+}
 
 h1, h2, h3, h4, h5, h6 {
     margin: 1.2em 0 0.8em;
     padding-bottom: 5px;
-    border-bottom: 1px solid #ccc;
-} /* ♥ */
+    border-bottom: 1px solid var(--sub-border-color);
+}
 
 .navbar-brand {
     margin: auto;
@@ -155,13 +155,13 @@ h1, h2, h3, h4, h5, h6 {
 
 button {
     padding: 0.4rem 0.8rem;
-    background: #efefef;
+    background: var(--button-border-color);
     border: none;
     border-radius: 1rem;
 }
 
 button:hover {
-    background-color: #f2f2f2;
+    background-color: var(--bg-color-1);
 }
 
 button#save, button#opennamu_save_button {
@@ -195,10 +195,9 @@ button#come:hover {
     color: white;
 }
 
-/* ♥ */
 
 #cate, .opennamu_category {
-    border: 1px solid #ccc;
+    border: 1px solid var(--sub-border-color);
     border-radius: 5px;
     font-size: .9rem;
     margin-top: 1rem;
@@ -206,7 +205,7 @@ button#come:hover {
     padding: 4px 4px 4px 6px;
     display: inline-block;
     width: 100%;
-} /* ♥ */
+}
 
 #redirect {
     background-color: #d9edf7;
@@ -218,26 +217,12 @@ button#come:hover {
     padding: 0.5rem 0.8rem;
     display: inline-block;
     width: 100%;
-} /* ♥ */
+}
 
 li.nav-item {
     margin: 0;
 }
 
-.vision .content-wrapper .vision-sidebar .vision-right-fixed {
-    position: absolute;
-}
-
-ul#live-recent-list li {
-    margin: 0;
-}
-
-.vision .content-wrapper .vision-sidebar .vision-right-fixed .live-recent .live-recent-header .nav .nav-item {
-    width: 7.5rem;
-
-    border-top-left-radius: 0.35rem;
-    border-top-right-radius: 0;
-}
 
 .vision .content-wrapper .vision-sidebar .vision-right-fixed .live-recent .live-recent-header .nav .nav-item .nav-link.active::before, .vision .content-wrapper .vision-sidebar .vision-right-fixed .live-recent .live-recent-header .nav .nav-item .nav-link:hover::before, .vision .content-wrapper .vision-sidebar .vision-right-fixed .live-recent .live-recent-header .nav .nav-item .nav-link:focus::before, .vision .content-wrapper .vision-sidebar .vision-right-fixed .live-recent .live-recent-header .nav .nav-item .nav-link:active::before {
     width: 7.5rem;
@@ -253,8 +238,7 @@ ul#live-recent-list li {
 
 .vision .content-wrapper .vision-content .vision-content-main {
     overflow: visible;
-    min-height: 80vh;
-} /* ♥ */
+}
 
 th[rowspan], td[rowspan] {
     position: initial;
