@@ -14,6 +14,7 @@
         {{imp[3][3]|safe}}
         <link rel="stylesheet" href="/views/vision/css/style.css.cache_v12">
         <link rel="stylesheet" href="/views/vision/css/more.css.cache_v4">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sun-typeface/SUITE/fonts/static/woff2/SUITE.css">
         {% if request.cookies.get('main_css_darkmode', '') == '1' %}
             <link rel="stylesheet" href="/views/main_css/css/sub/dark.css.cache_v4">
             <link rel="stylesheet" href="/views/vision/css/dark.css.cache_v6">
@@ -224,10 +225,24 @@
                         <div class="content-tools">
                             <div class="btn-group" role="group" aria-label="content-tools">
                                 {% for sub_d in menu %}
-                                    {% if sub_d|length > 2 and sub_d[2] == 1 %}
-                                        <a class="btn btn-secondary tools-btn" href="/{{sub_d[0]}}" id="topic_color">{{sub_d[1]}}</a>
+                                    {% if loop.index > 3 %}
+                                        {% if loop.index == 4 %}
+                                            <button type="button" class="btn btn-secondary tools-btn tool-more-btn" data-toggle="dropdown" aria-expanded="false">
+                                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                                            </button>
+                                            <div class="dropdown-menu dropdown-menu-right" role="menu">
+                                            {% set i = 0 %}
+                                        {% endif %}
+                                        <a class="dropdown-item" href="/{{sub_d[0]}}">{{sub_d[1]}}</a>
                                     {% else %}
-                                        <a class="btn btn-secondary tools-btn" href="/{{sub_d[0]}}">{{sub_d[1]}}</a>
+                                        {% if sub_d|length > 2 and sub_d[2] == 1 %}
+                                        <a class="btn btn-secondary tools-btn" href="/{{sub_d[0]}}" id="topic_color">{{sub_d[1]}}</a>
+                                        {% else %}
+                                            <a class="btn btn-secondary tools-btn" href="/{{sub_d[0]}}">{{sub_d[1]}}</a>
+                                        {% endif %}
+                                    {% endif %}
+                                    {% if not menu[loop.index] and loop.index > 3 %}
+                                        </div>
                                     {% endif %}
                                 {% endfor %}
                             </div>
@@ -315,17 +330,15 @@
                     <div class="sidebar-1">
                         <a class="sidebar-1-title" href="/recent_changes"> {{'recent_change'|load_lang}} <i class="fa-solid fa-angle-right"></i></a>
                         <ul class="sidebar-1-list" id="sidebar-1-list">
-                            {% for i in range(12) %}
+                            {% for i in range(14) %}
                                 <li><span id="sidebar-1-item">&nbsp;</span></li>
                             {% endfor %}
                         </ul>
                     </div>
-                    <div class="right-ads-1">
-                    </div>
                     <div class="sidebar-2">
                         <a class="sidebar-2-title" href="/recent_discuss"> {{'recent_discussion'|load_lang}} <i class="fa-solid fa-angle-right"></i></a>
                         <ul class="sidebar-2-list" id="sidebar-2-list">
-                            {% for i in range(5) %}
+                            {% for i in range(7) %}
                                 <li><span id="sidebar-2-item">&nbsp;</span></li>
                             {% endfor %}
                         </ul>
@@ -333,12 +346,10 @@
                     <div class="sidebar-3">
                         <a class="sidebar-3-title" href="https://2du.pythonanywhere.com/w/오픈나무%20공용"> 연합 {{'recent_change'|load_lang}} <i class="fa-solid fa-angle-right"></i></a>
                         <ul class="sidebar-3-list" id="sidebar-3-list">
-                            {% for i in range(10) %}
+                            {% for i in range(8) %}
                                 <li><span id="sidebar-3-item">&nbsp;</span></li>
                             {% endfor %}
                         </ul>
-                    </div>
-                    <div class="right-ads-2">
                     </div>
                 </div>
             </div>

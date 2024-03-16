@@ -11,9 +11,9 @@
     --a-color: dodgerblue;
     --nav-color: #fcfcfc;
     --bg-color-0: white;
-    --bg-color-1: #f2f2f2;
-    --bg-color-2: #fbfbfb;
-    --bg-color-3: #f7f7f7;
+    --bg-color-1: #fbfbfb;
+    --bg-color-2: #f7f7f7;
+    --bg-color-3:#f0f0f0;
     --button-border-color: #efefef;
     --topic-color: #bbeabb;
     --link-color: #090;
@@ -46,7 +46,8 @@ body {
 }
 
 body, h1, h2, h3, h4, h5, h6, b {
-    font-family: 'Pretendard','Malgun Gothic','Apple SD Gothic Neo', sans-serif;
+    font-family: 'SUITE',sans-serif;
+    font-feature-settings: "ss18";
 }
 
 body {
@@ -375,7 +376,7 @@ del, s, strike {
 
 .nav-dropdown-menu:after,
 .vision .nav-wrapper .navbar .navbar-login .login-dropdown-menu:after {
-    border-bottom-color: var(--bg-color-3);
+    border-bottom-color: var(--bg-color-2);
     border-width: 0.7rem;
     left: auto;
     right: 0.81rem;
@@ -394,7 +395,7 @@ del, s, strike {
 }
 
 .sidebar-0, .sidebar-1, .sidebar-2, .sidebar-3 {
-    background-color: var(--bg-color-3);
+    background-color: var(--bg-color-2);
     border: 1px solid var(--border-color);
     border-radius: 18px;
     margin-bottom: 1rem;
@@ -527,8 +528,13 @@ del, s, strike {
     padding: 0.4rem 0.9rem;
 }
 
+.vision .content-wrapper .vision-content .vision-content-header .content-tools .tool-more-btn {
+    margin-left: 8px;
+    border-radius: 1rem;
+}
+
 .vision .content-wrapper .vision-content .vision-content-header .content-tools .dropdown-toggle {
-    padding: 0.4rem 0.3rem;
+    padding: 0.4rem 0.4rem;
 }
 
 .vision .content-wrapper .vision-content .vision-content-header .content-tools .tools-btn:hover,
@@ -556,7 +562,7 @@ del, s, strike {
 }
 
 .vision .content-wrapper .vision-content .vision-content-header .title>h1 {
-    color: #000;
+    color: var(--text-color);
     font-weight: bold;
 }
 
@@ -671,7 +677,7 @@ del, s, strike {
     border-color: var(--border-color);
     border-radius: 1rem;
     padding: 10px 0;
-    background-color: var(--bg-color-3);
+    background-color: var(--bg-color-2);
 }
 
 .dropdown-item {
@@ -680,7 +686,7 @@ del, s, strike {
 }
 
 .dropdown-menu .dropdown-item:hover {
-    background-color: var(--bg-color-2);
+    background-color: var(--bg-color-0);
     color: var(--text-color);
     transition: 0.3s;
 }
@@ -690,9 +696,9 @@ del, s, strike {
 }
 
 .btn-secondary {
-    color: var(--text-color);
-    background-color: var(--bg-color-0);
-    border-color: var(--border-color);
+    color: var(--text-color) !important;
+    background-color: var(--bg-color-0) !important;
+    border-color: var(--border-color) !important;
 }
 
 .form-control {
@@ -719,6 +725,9 @@ del, s, strike {
     outline: 0;
 }
 
+a.btn:nth-child(3) {
+    border-radius: 0 1rem 1rem 0 !important;
+}
 .input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group {
     z-index: 3; /* 파폭, IE 테두리관련 버그 */
 }

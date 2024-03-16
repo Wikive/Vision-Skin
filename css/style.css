@@ -7,10 +7,6 @@
     padding-left: 0.7rem;
 }
 
-.btn.btn-secondary.tools-btn.dropdown-toggle {
-    height: 34px;
-}
-
 .hljs {
     background: #f5f8fa;
 }
@@ -28,7 +24,7 @@ select {
 }
 
 input {
-    border: 1px solid #e1e8ed;
+    border: 1px solid var(--border-color);
     padding: 5px 8px;
     border-radius: 16px;
 }
@@ -155,7 +151,7 @@ h1, h2, h3, h4, h5, h6 {
 
 button {
     padding: 0.4rem 0.8rem;
-    background: var(--button-border-color);
+    background: var(--bg-color-3) !important;
     border: none;
     border-radius: 1rem;
 }
@@ -165,22 +161,22 @@ button:hover {
 }
 
 button#save, button#opennamu_save_button {
-    background-color: #696FFF;
+    background-color: #696FFF !important;
     color: white;
     margin-right: 5px;
 }
 
 button#save:hover, button#opennamu_save_button:hover {
-    background-color: #8183d3;
+    background-color: #8183d3 !important;
 }
 
 button#preview, button#opennamu_preview_button {
-    background-color: #8ca5ec;
+    background-color: #8ca5ec !important;
     color: white;
 }
 
 button#preview:hover, button#opennamu_preview_button:hover {
-    background-color: #98a9d6;
+    background-color: #98a9d6 !important;
     color: white;
 }
 

@@ -18,7 +18,7 @@ ringo_do_side_button_2();
 ringo_do_side_button_3();
 
 function ringo_do_side_button_1() {
-    fetch("/api/recent_change/12").then(function(res) {
+    fetch("/api/recent_change/14").then(function(res) {
         return res.json();
     }).then(function(text) {
         let data = '';
@@ -38,7 +38,7 @@ function ringo_do_side_button_1() {
 }
 
 function ringo_do_side_button_2() {
-    fetch("/api/recent_discuss/6").then(function(res) {
+    fetch("/api/recent_discuss/7").then(function(res) {
         return res.json();
     }).then(function(text) {
         let data = '';
@@ -53,7 +53,7 @@ function ringo_do_side_button_2() {
 }
 
 function ringo_do_side_button_3() {
-    fetch("https://namgall.wikiing.in/api/open_recent_changes/10").then(function(res) {
+    fetch("https://namgall.wikiing.in/api/open_recent_changes/8").then(function(res) {
         return res.json();
     }).then(function(text) {
         let data = '';
