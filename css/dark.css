@@ -18,3 +18,7 @@
     --link-color: #090;
     --topic-color: #325a56;
 }
+
+button {
+    background: var(--bg-color-3);
+}

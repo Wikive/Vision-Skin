@@ -183,7 +183,7 @@ del, s, strike {
 /* 백그라운드 색 지정 End */
 
 /* 컨텐츠 넓이 수정 및 가운데 정렬 */
-.vision .nav-wrapper .navbar, .vision .content-wrapper {
+.vision .nav-wrapper .navbar, .vision .vision-top-notice, .vision .content-wrapper {
     max-width: 1420px;
     margin: 0 auto;
 }
@@ -191,6 +191,7 @@ del, s, strike {
 .vision .content-wrapper {
     display: flex;
     flex-direction: row;
+    align-items: flex-start;
 }
 /* 컨텐츠 넓이 수정 및 가운데 정렬 End */
 
@@ -214,7 +215,7 @@ del, s, strike {
     display: flex;
     font-size: 1.25rem;
     font-weight: 700;
-    max-width: 95px !important;
+    max-width: 95px;
 }
 
 .vision .nav-wrapper .navbar .navbar-nav .nav-item {
@@ -388,10 +389,7 @@ del, s, strike {
     min-width: 270px;
     width: 300px;
     margin: 1rem 0;
-}
-
-.vision .content-wrapper .vision-sidebar .vision-right-fixed {
-    z-index: 999;
+    position: relative;
 }
 
 .sidebar-0, .sidebar-1, .sidebar-2, .sidebar-3 {
@@ -451,9 +449,9 @@ del, s, strike {
     margin: 8px 14px;
 }
 
-.vision .content-wrapper .vision-sidebar .vision-right-fixed .sidebar-1-list,
-.vision .content-wrapper .vision-sidebar .vision-right-fixed .sidebar-2-list,
-.vision .content-wrapper .vision-sidebar .vision-right-fixed .sidebar-3-list {
+.vision .content-wrapper .vision-sidebar .sidebar-1-list,
+.vision .content-wrapper .vision-sidebar .sidebar-2-list,
+.vision .content-wrapper .vision-sidebar .sidebar-3-list {
     list-style: none;
 }
 
@@ -467,14 +465,12 @@ del, s, strike {
     margin-left: 1rem;
 }
 
-.vision .content-wrapper .vision-sidebar .vision-right-fixed li {
+.vision .content-wrapper .vision-sidebar li {
     margin: 0.6rem 1rem;
-    white-space : nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
-.vision .content-wrapper .vision-sidebar .vision-right-fixed a {
+.vision .content-wrapper .vision-sidebar a {
     color: var(--text-color);
     display: flex;
     align-items: center;
@@ -485,6 +481,13 @@ del, s, strike {
 .recent-time {
     font-size: .75rem;
     margin-left: 1rem;
+}
+
+.sidebar-4 {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 1rem;
+    padding: 4px;
 }
 
 /* 오른쪽 메뉴 수정 End */
@@ -696,9 +699,9 @@ del, s, strike {
 }
 
 .btn-secondary {
-    color: var(--text-color) !important;
-    background-color: var(--bg-color-0) !important;
-    border-color: var(--border-color) !important;
+    color: var(--text-color);
+    background-color: var(--bg-color-0);
+    border-color: var(--border-color);
 }
 
 .form-control {

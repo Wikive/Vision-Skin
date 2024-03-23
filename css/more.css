@@ -37,6 +37,16 @@ blockquote {
 	word-break: keep-all;
 }
 
+/* 상단 공지 */
+.vision-top-notice-bg {
+    background-color: #f0ef75;
+}
+
+.vision-top-notice {
+	padding: 4px 14px;
+    color: #222;
+}
+
 /* 디자인 강제 지정 */
 a {
 	color: var(--a-color);
@@ -64,6 +74,31 @@ td {
 html, body {
     scroll-behavior: smooth;
 	letter-spacing: -0.5px;
+}
+
+/* 최근 편집 디자인 */
+.opennamu_recent_change {
+	border-top: 2px solid var(--border-color);
+	border-width: 2px 0 0 0;
+	box-shadow: none;
+}
+
+#opennamu_list_recent_change .main_hr {
+	padding: 0;
+}
+
+.opennamu_recent_change hr {
+	margin: 0;
+	border: 0;
+}
+
+/* 팝업 디자인 */
+.opennamu_popup_footnote {
+	background-color: var(--bg-color-2);
+	border-radius: 6px;
+	padding: 9px 13px;
+	font-size: 14px;
+	color: var(--text-color);
 }
 
 /* 분류, 넘겨주기 알림 */

@@ -151,7 +151,7 @@ h1, h2, h3, h4, h5, h6 {
 
 button {
     padding: 0.4rem 0.8rem;
-    background: var(--bg-color-3) !important;
+    background: var(--bg-color-3);
     border: none;
     border-radius: 1rem;
 }
@@ -161,22 +161,22 @@ button:hover {
 }
 
 button#save, button#opennamu_save_button {
-    background-color: #696FFF !important;
+    background-color: #696FFF;
     color: white;
     margin-right: 5px;
 }
 
 button#save:hover, button#opennamu_save_button:hover {
-    background-color: #8183d3 !important;
+    background-color: #8183d3;
 }
 
 button#preview, button#opennamu_preview_button {
-    background-color: #8ca5ec !important;
+    background-color: #8ca5ec;
     color: white;
 }
 
 button#preview:hover, button#opennamu_preview_button:hover {
-    background-color: #98a9d6 !important;
+    background-color: #98a9d6;
     color: white;
 }
 

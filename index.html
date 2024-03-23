@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{'language_tag'|load_lang}}">
     <head>
         <meta charset="utf-8">
         {% if imp[3][0] != 0 %}
@@ -16,7 +16,7 @@
         <link rel="stylesheet" href="/views/vision/css/more.css.cache_v4">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sun-typeface/SUITE/fonts/static/woff2/SUITE.css">
         {% if request.cookies.get('main_css_darkmode', '') == '1' %}
-            <link rel="stylesheet" href="/views/main_css/css/sub/dark.css.cache_v4">
+            {{imp[3][5]|safe}}
             <link rel="stylesheet" href="/views/vision/css/dark.css.cache_v6">
         {% endif %}
         <style id="ringo_add_style"></style>
@@ -218,6 +218,13 @@
                 </a></li>
             {% endif %}
         </div>
+        {% if imp[1][7][0] != '' %}
+            <div class="vision-top-notice-bg">
+                <div class="vision-top-notice">
+                    {{imp[1][7][0]|safe}}
+                </div>
+            </div>
+        {% endif %}
         <div class="content-wrapper">
             <div class="container-fluid vision-content">
                 <div class="vision-content-header">
@@ -236,7 +243,7 @@
                                         <a class="dropdown-item" href="/{{sub_d[0]}}">{{sub_d[1]}}</a>
                                     {% else %}
                                         {% if sub_d|length > 2 and sub_d[2] == 1 %}
-                                        <a class="btn btn-secondary tools-btn" href="/{{sub_d[0]}}" id="topic_color">{{sub_d[1]}}</a>
+                                        <a class="btn btn-secondary tools-btn" href="/{{sub_d[0]}}" id="topic_color"><i class="fa fa-solid fa-square-pen"></i> {{sub_d[1]}}</a>
                                         {% else %}
                                             <a class="btn btn-secondary tools-btn" href="/{{sub_d[0]}}">{{sub_d[1]}}</a>
                                         {% endif %}
@@ -267,94 +274,98 @@
                 </div>
             </div>
             <div class="vision-sidebar" id="sidebar">
-                <div class="vision-right-fixed">
-                    <div class="sidebar-0">
-                        <a class="sidebar-0-title" href="/user">{{'user'|load_lang}} <i class="fa fa-solid fa-angle-right"></i></a>
-                        <div class="sidebar-0-account">
-                            <div class="sidebar-0-profile">
-                                {% if imp[2][2] == 0 %}
-                                <span class="fa fa-user-large"></span>
-                                {% elif imp[2][4] != '' %}
-                                    <img class="profile-img" src="https://secure.gravatar.com/avatar/{{imp[2][4]|md5_replace}}?d=retro">
-                                {% else %}
-                                    <img class="profile-img" src="https://secure.gravatar.com/avatar/00000000000000000000000000000000?d=retro&f=y">
-                                {% endif %}
+                <div class="sidebar-0">
+                    <a class="sidebar-0-title" href="/user"> {{'user'|load_lang}} <i class="fa fa-solid fa-angle-right"></i></a>
+                    <div class="sidebar-0-account">
+                        <div class="sidebar-0-profile">
+                            {% if imp[2][2] == 0 %}
+                            <i class="fa fa-solid fa-circle-user"></i>
+                            {% elif imp[2][4] != '' %}
+                                <img class="profile-img" src="https://secure.gravatar.com/avatar/{{imp[2][4]|md5_replace}}?d=retro">
+                            {% else %}
+                                <img class="profile-img" src="https://secure.gravatar.com/avatar/00000000000000000000000000000000?d=retro&f=y">
+                            {% endif %}
+                        </div>
+                        <div class="sidebar-0-name">
+                            <div class="sidebar-0-name1">
+                                {{imp[2][10]}}
                             </div>
-                            <div class="sidebar-0-name">
-                                <div class="sidebar-0-name1">
-                                    {{imp[2][10]}}
-                                </div>
-                                <div class="sidebar-0-name2">
-                                    {% if imp[2][2] == 1 %}
-                                        {% if imp[2][6] == '1' %}
-                                            {% if 'owner' in imp[2][9] %}
-                                                Owner
-                                            {% else %}
-                                                Admin
-                                            {% endif %}
+                            <div class="sidebar-0-name2">
+                                {% if imp[2][2] == 1 %}
+                                    {% if imp[2][6] == '1' %}
+                                        {% if 'owner' in imp[2][9] %}
+                                            Owner
                                         {% else %}
-                                            Member
+                                            Admin
                                         {% endif %}
                                     {% else %}
-                                        IP User
+                                        Member
                                     {% endif %}
-                                </div>
+                                {% else %}
+                                    IP User
+                                {% endif %}
                             </div>
                         </div>
-                        <div class="sidebar-0-tool">
-                            {% if imp[2][8] != '0' %}
-                                <a class="sidebar-0-item" id="nav-tabbar-color" href="/alarm">
-                                    <i class="fa fa-solid fa-bell"></i>
-                                    <span class="sidebar-0-item-sub">
-                                        {{imp[2][8]}}
-                                    </span> 
-                            {% else %}
-                                <a class="sidebar-0-item" href="/alarm">
-                                    <i class="fa fa-solid fa-bell"></i>
-                                </a>
-                            {% endif %}
-                            <a class="sidebar-0-item" href="/change/skin_set">
-                                <i class="fa fa-solid fa-gears"></i>
-                            </a>
-                            <a class="sidebar-0-item" href="/change">
-                                <i class="fa fa-solid fa-pen-to-square"></i>
-                            </a>
-                            <a class="sidebar-0-item" href="/star_doc">
-                                <i class="fa fa-solid fa-heart"></i>
-                            </a>
-                            <a class="sidebar-0-item" href="/logout">
-                                <i class="fa fa-solid fa-right-from-bracket"></i>
-                            </a>
-                        </div>
                     </div>
-                    <div class="sidebar-1">
-                        <a class="sidebar-1-title" href="/recent_changes"> {{'recent_change'|load_lang}} <i class="fa-solid fa-angle-right"></i></a>
-                        <ul class="sidebar-1-list" id="sidebar-1-list">
-                            {% for i in range(14) %}
-                                <li><span id="sidebar-1-item">&nbsp;</span></li>
-                            {% endfor %}
-                        </ul>
+                    <div class="sidebar-0-tool">
+                        {% if imp[2][8] != '0' %}
+                            <a class="sidebar-0-item" id="nav-tabbar-color" href="/alarm">
+                                <i class="fa fa-solid fa-bell"></i>
+                                <span class="sidebar-0-item-sub">
+                                    {{imp[2][8]}}
+                                </span> 
+                        {% else %}
+                            <a class="sidebar-0-item" href="/alarm">
+                                <i class="fa fa-solid fa-bell"></i>
+                            </a>
+                        {% endif %}
+                        <a class="sidebar-0-item" href="/change/skin_set">
+                            <i class="fa fa-solid fa-gears"></i>
+                        </a>
+                        <a class="sidebar-0-item" href="/change">
+                            <i class="fa fa-solid fa-pen-to-square"></i>
+                        </a>
+                        <a class="sidebar-0-item" href="/star_doc">
+                            <i class="fa fa-solid fa-heart"></i>
+                        </a>
+                        <a class="sidebar-0-item" href="/logout">
+                            <i class="fa fa-solid fa-right-from-bracket"></i>
+                        </a>
                     </div>
-                    <div class="sidebar-2">
-                        <a class="sidebar-2-title" href="/recent_discuss"> {{'recent_discussion'|load_lang}} <i class="fa-solid fa-angle-right"></i></a>
-                        <ul class="sidebar-2-list" id="sidebar-2-list">
-                            {% for i in range(7) %}
-                                <li><span id="sidebar-2-item">&nbsp;</span></li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                    <div class="sidebar-3">
-                        <a class="sidebar-3-title" href="https://2du.pythonanywhere.com/w/오픈나무%20공용"> 연합 {{'recent_change'|load_lang}} <i class="fa-solid fa-angle-right"></i></a>
-                        <ul class="sidebar-3-list" id="sidebar-3-list">
-                            {% for i in range(8) %}
-                                <li><span id="sidebar-3-item">&nbsp;</span></li>
-                            {% endfor %}
-                        </ul>
-                    </div>
+                </div>
+                <div class="sidebar-1">
+                    <a class="sidebar-1-title" href="/recent_changes"> {{'recent_change'|load_lang}} <i class="fa-solid fa-angle-right"></i></a>
+                    <ul class="sidebar-1-list" id="sidebar-1-list">
+                        {% for i in range(14) %}
+                            <li><span id="sidebar-1-item">&nbsp;</span></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="sidebar-2">
+                    <a class="sidebar-2-title" href="/recent_discuss"> {{'recent_discussion'|load_lang}} <i class="fa-solid fa-angle-right"></i></a>
+                    <ul class="sidebar-2-list" id="sidebar-2-list">
+                        {% for i in range(7) %}
+                            <li><span id="sidebar-2-item">&nbsp;</span></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="sidebar-3">
+                    <a class="sidebar-3-title" href="https://2du.pythonanywhere.com/w/오픈나무%20공용"> 연합 {{'recent_change'|load_lang}} <i class="fa-solid fa-angle-right"></i></a>
+                    <ul class="sidebar-3-list" id="sidebar-3-list">
+                        {% for i in range(8) %}
+                            <li><span id="sidebar-3-item">&nbsp;</span></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="sidebar-4">
+                    {{imp[1][7][1]|safe}}
                 </div>
             </div>
         </div>
         <div class="vision-footer" id="bottom">
+            <p>
+                {{imp[1][7][2]|safe}}
+            </p>
             <p>
                 {{imp[1][1]|safe}}
             </p>
