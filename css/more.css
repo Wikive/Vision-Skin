@@ -6,7 +6,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* 수평선 */
-hr {
+hr, .opennamu_footnote {
 	margin: 1rem 0;
     border-color: var(--sub-border-color);
 }
@@ -21,7 +21,7 @@ hr {
     padding-left: 0.7rem;
 }
 
-li {
+.opennamu_ul li, li {
     margin: 0.4em 0 0.4em 1em;
 }
 
@@ -74,6 +74,7 @@ td {
 html, body {
     scroll-behavior: smooth;
 	letter-spacing: -0.5px;
+	color: var(--text-color);
 }
 
 /* 최근 편집 디자인 */
@@ -81,24 +82,12 @@ html, body {
 	border-top: 2px solid var(--border-color);
 	border-width: 2px 0 0 0;
 	box-shadow: none;
-}
-
-#opennamu_list_recent_change .main_hr {
-	padding: 0;
+	margin-bottom: -12px;
 }
 
 .opennamu_recent_change hr {
 	margin: 0;
 	border: 0;
-}
-
-/* 팝업 디자인 */
-.opennamu_popup_footnote {
-	background-color: var(--bg-color-2);
-	border-radius: 6px;
-	padding: 9px 13px;
-	font-size: 14px;
-	color: var(--text-color);
 }
 
 /* 분류, 넘겨주기 알림 */
@@ -204,7 +193,7 @@ html, body {
 		z-index: 10000;
 		bottom: 16px;
 		left: 16px;
-		opacity: 0.8;
+		opacity: 0.5;
 	}
 	
 	div.menu-buttons a {
@@ -212,77 +201,13 @@ html, body {
 		width: 45px;
 		height: 45px;
 		line-height: 43px;
-		border: 2px solid var(--button-border-color);
+		border: 2px solid #e1e1e1;
 		text-decoration: none;
 		text-align: center;
-		background: var(--main-color);
-		color: white;
+		background: var(--button-bg-color);
+		color: var(--text-color-1);
 		border-radius: 20px;
 	}
-}
-
-/* 모바일에서 탭바로 인한 간격 조정 */
-@media (max-width: 798px) {
-	div.menu-buttons {
-		bottom: 76px;
-	}
-}
-
-
-/* 탭바 디자인 */
-@media (min-width: 799px) {
-	.nav-tabbar {
-		display: none;
-	}
-}
-
-/* 태블릿 이전까지만 표시 */
-@media (max-width: 798px) {
-    .nav-tabbar {
-        position: fixed;
-		z-index: 10000;
-		margin: 0 13px;
-		padding: 0 9px;
-        bottom: 18px;
-		height: 54px;
-		width: calc(100% - 26px);
-		text-align: center;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		border: 2px solid var(--button-border-color);
-		background: var(--bg-color-2);
-		border-radius: 20px;
-    }
-
-	.nav-tabbar li {
-		list-style-type: none;
-		margin: 0;
-		padding: 0;
-		display: block;
-		float: left;
-		width: 15%;
-		font-size: 9px;
-	}
-
-	a.nav-tabbar-item {
-		cursor: pointer;
-		text-decoration-line: none;
-		color: var(--menu-button-color);
-	}
-
-	.nav-tabbar .fa {
-		font-size: 20px;
-		margin: 4px 0 3px;
-	}
-
-	.nav-tabbar #nav-tabbar-color {
-		color: #F74646;
-	}
-
-    div.scroll-buttons {
-        bottom: 76px;
-    }
 }
 
 /* 폰트 불러오기 */

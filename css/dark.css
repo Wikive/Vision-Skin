@@ -8,17 +8,21 @@
     --text-color: #E0E0E0;
     --text-color-1: #ddd;
     --text-color-2: #bbb;
-    --a-color: #7CACF8;
+    --a-color: #A7C8FF;
     --nav-color: #ddd;
     --bg-color-0: #1c1d1f;
     --bg-color-1: #111;
     --bg-color-2: #272727;
     --bg-color-3: #393939;
-    --button-border-color: #efefef;
+    --button-bg-color: #000;
     --link-color: #090;
     --topic-color: #325a56;
 }
 
 button {
     background: var(--bg-color-3);
+}
+
+html, body {
+    color: var(--text-color);
 }

@@ -14,7 +14,7 @@
     --bg-color-1: #fbfbfb;
     --bg-color-2: #f7f7f7;
     --bg-color-3:#f0f0f0;
-    --button-border-color: #efefef;
+    --button-bg-color: #fff;
     --topic-color: #bbeabb;
     --link-color: #090;
 }
@@ -155,6 +155,7 @@ textarea {
     width: 100%;
     border: 1px solid var(--border-color);
     padding: 0.5rem;
+    border-radius: 0.8rem;
 }
 
 hr {
@@ -470,6 +471,11 @@ del, s, strike {
     white-space: nowrap;
 }
 
+.recent-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .vision .content-wrapper .vision-sidebar a {
     color: var(--text-color);
     display: flex;
@@ -480,6 +486,7 @@ del, s, strike {
 
 .recent-time {
     font-size: .75rem;
+    text-align: right;
     margin-left: 1rem;
 }
 
@@ -638,6 +645,10 @@ del, s, strike {
     width: 100%;
     margin: 0 auto;
     text-align: left;
+}
+
+.footer-p {
+    word-break: keep-all;
 }
 
 .vision-footer p, .vision-footer #powered {
