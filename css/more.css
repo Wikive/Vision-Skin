@@ -48,6 +48,10 @@ blockquote {
 }
 
 /* 디자인 강제 지정 */
+.opennamu_not_exist_link {
+    color: #d94844;
+}
+
 a {
 	color: var(--a-color);
 }

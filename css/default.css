@@ -193,6 +193,7 @@ del, s, strike {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
+    width: 100%;
 }
 /* 컨텐츠 넓이 수정 및 가운데 정렬 End */
 
@@ -272,20 +273,20 @@ del, s, strike {
     border-right-color: var(--border-color);
 }
 
-.vision .nav-wrapper .navbar .form-inline .btn {
+.vision .nav-wrapper .navbar .btn {
     color: var(--text-color);
     padding: 0.2rem 0.6rem;
     line-height: 22px;
 }
 
-.vision .nav-wrapper .navbar .form-inline .btn:hover, .vision .nav-wrapper .navbar .form-inline .btn:focus {
+.vision .nav-wrapper .navbar .form-inline .btn:hover, .vision .nav-wrapper .navbar .btn:focus {
     background-color: var(--main-color);
     border-color: var(--sub-color);
     color: var(--bg-color-0);
     outline: 0;
 }
 
-.vision .nav-wrapper .navbar .form-inline .btn .fa {
+.vision .nav-wrapper .navbar .btn .fa {
     width: 0.9rem;
 }
 
@@ -302,7 +303,7 @@ del, s, strike {
 
 .vision .nav-wrapper .navbar .navbar-login {
     float: right;
-    padding-left: 0.8rem;
+    padding-left: 0.4rem;
 }
 
 .vision .nav-wrapper .navbar .navbar-login .fa {
@@ -383,6 +384,32 @@ del, s, strike {
     left: auto;
     right: 0.81rem;
 }
+
+.navbar-alarm {
+    float: right;
+    font-size: 1rem;
+    padding: 0.7rem 0.9rem;
+    line-height: 1.4rem;
+}
+
+.navbar-alarm-item {
+    color: var(--nav-color);
+}
+
+#navbar-alarm-color {
+    color: #d94844;
+}
+
+#navbar-random {
+    float: left;
+    font-size: 0.9rem;
+    border-radius: 1rem;
+    width: 2.4rem;
+    height: 2.3rem;
+    margin-right: 5px;
+    line-height: 22px;
+}
+
 /* 네비 수정 End */
 
 /* 오른쪽 메뉴 수정 */

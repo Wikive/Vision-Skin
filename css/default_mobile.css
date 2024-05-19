@@ -1,9 +1,6 @@
 /* 부트스트랩 기본 폰트가 16이라 기본폰트 15인 리버티스킨은 bootstrap 반응형 부분을 쓰기가 힘듬
    그래서 그냥 px로 때려박는걸로
 */
-/* 1300px 이하 */
-@media (max-width: 1300px) {}
-
 /* Max-width: 1023 데스크탑 마지노선 */
 @media (max-width: 1023px) {
     .vision .nav-wrapper .navbar {
@@ -22,7 +19,7 @@
     }
 
     .vision .nav-wrapper .navbar .form-inline .input-group .form-control {
-        width: 100%;
+        width: calc(100% - 41px);
     }
 
     .vision .nav-wrapper .navbar .form-inline .input-group .input-group-btn {
@@ -149,10 +146,6 @@
 @media (max-width: 397px) {
     .vision .nav-wrapper .navbar .navbar-brand {
         width: auto;
-    }
-
-    .vision .nav-wrapper .navbar .navbar-nav .nav-item .nav-link::after {
-        display: none;
     }
 
     .vision .nav-wrapper .navbar .navbar-nav .nav-item .nav-link {

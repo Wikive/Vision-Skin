@@ -21,11 +21,11 @@
         {% endif %}
         <style id="ringo_add_style"></style>
         <link rel="shortcut icon" href="/image/favicon.ico">
-        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="/views/vision/js/layout.js.cache_v3"></script>
-        <script type="text/javascript" src="/views/vision/js/skin_set.js.cache_v6"></script>
+        <script defer src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+        <script defer src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+        <script defer src="/views/vision/js/layout.js.cache_v3"></script>
+        <script defer src="/views/vision/js/skin_set.js.cache_v6"></script>
         <script src="https://kit.fontawesome.com/de96a6a0bf.js" crossorigin="anonymous"></script>
         {{imp[1][5]|safe}}
         {{imp[2][3]|safe}}
@@ -35,9 +35,7 @@
             <meta name="title" content="{{imp[0]}} - {{imp[1][0]}}">
         {% endif %}
         <meta name="keywords" content="{{imp[0]}}">
-        {% if imp[2][12] != 0 and imp[2][12] == 'w' %}
-            <meta name="description" content="{{data}}">
-        {% endif %}
+        <meta name="description" content="{{imp[3][6]}}">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <meta property="og:type" content="website">
         <meta name="theme-color" content="#696FFF">
@@ -51,33 +49,18 @@
                         <a class="nav-link" href="/recent_changes"><span class="fa fa-solid fa-compass"></span><span class="hide-title">{{'recent_change'|load_lang}}</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/recent_discuss"><span class="fa fa-solid fa-comment-dots"></span><span class="hide-title">{{'recent_discussion'|load_lang}}</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/random"><span class="fa fa-random"></span><span class="hide-title">{{'random'|load_lang}}</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/bbs/main"><span class="fa fa-file-text"></span><span class="hide-title">{{'bbs_main'|load_lang}}</span></a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle dropdown-toggle-fix" href="#" data-toggle="dropdown" aria-expanded="false">
-                            <span class="fa fa-solid fa-toolbox"></span><span class="hide-title">{{'tool'|load_lang}}</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right nav-dropdown-menu" role="menu">
-                            <a class="dropdown-item" href="/vote"><span class="fa fa-check-square-o"></span><span class="hide-title">{{'vote'|load_lang}}</span></a>
-                            <a class="dropdown-item" href="/upload"><span class="fa fa-upload"></span><span class="hide-title">{{'upload'|load_lang}}</span></a>
-                            <a class="dropdown-item" href="/other"><span class="fa fa-cogs"></span><span class="hide-title">{{'other_tool'|load_lang}}</span></a>
-                            {% if imp[2][9] != '0' %}
-				<div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="/manager"><span class="fa fa-sliders"></span><span class="hide-title">{{'admin_tool'|load_lang}}</span></a>
-                            {% endif %}
-                        </div>
+                        <a class="nav-link" href="/recent_discuss/1/open"><span class="fa fa-solid fa-comment-dots"></span><span class="hide-title">{{'recent_discussion'|load_lang}}</span></a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle dropdown-toggle-fix" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="fa fa-cogs"></span><span class="hide-title">{{'other_tool'|load_lang}}</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right nav-dropdown-menu" role="menu">
+                            <a class="dropdown-item" href="/bbs/main"><span class="fa fa-file-text"></span><span class="hide-title">{{'bbs_main'|load_lang}}</span></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/vote"><span class="fa fa-check-square-o"></span><span class="hide-title">{{'vote'|load_lang}}</span></a>
+                            <a class="dropdown-item" href="/upload"><span class="fa fa-upload"></span><span class="hide-title">{{'upload'|load_lang}}</span></a>
+                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="/list/document/all"><span class="fa fa-folder-open"></span><span class="hide-title">{{'all_document_list'|load_lang}}</span></a>
                             <a class="dropdown-item" href="/list/document/acl"><span class="fa fa-solid fa-shop-lock"></span><span class="hide-title">{{'acl_document_list'|load_lang}}</span></a>
                             <a class="dropdown-item" href="/list/document/need"><span class="fa fa-chain-broken"></span><span class="hide-title">{{'need_document'|load_lang}}</span></a>
@@ -85,11 +68,12 @@
                             <a class="dropdown-item" href="/list/document/short"><span class="fa fa-file-o"></span><span class="hide-title">{{'short_page'|load_lang}}</span></a>
                             <a class="dropdown-item" href="/list/document/old"><span class="fa fa-solid fa-business-time"></span><span class="hide-title">{{'old_page'|load_lang}}</span></a>
                             <a class="dropdown-item" href="/list/file"><span class="fa fa-file-image-o"></span><span class="hide-title">{{'image_file_list'|load_lang}}</span></a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/block_log"><span class="fa fa-low-vision"></span><span class="hide-title">{{'recent_ban'|load_lang}}</span></a>
-                            <a class="dropdown-item" href="/list/user"><span class="fa fa-users"></span><span class="hide-title">{{'member_list'|load_lang}}</span></a>
-                            <a class="dropdown-item" href="/list/admin"><span class="fa fa-user-secret"></span><span class="hide-title">{{'admin_list'|load_lang}}</span></a>
                             <a class="dropdown-item" href="/list/admin/auth_use"><span class="fa fa-solid fa-list-check"></span><span class="hide-title">{{'authority_use_list'|load_lang}}</span></a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/other"><span class="fa fa-cogs"></span><span class="hide-title">{{'other_tool'|load_lang}}</span></a>
+                            {% if imp[2][9] != '0' %}
+                                <a class="dropdown-item" href="/manager"><span class="fa fa-sliders"></span><span class="hide-title">{{'admin_tool'|load_lang}}</span></a>
+                            {% endif %}
                         </div>
                     </li>
                     {% if imp[1][6] != '' %}
@@ -143,7 +127,6 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="/change/skin_set"><span class="hide-title">{{'skin_set'|load_lang}}</span></a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/alarm"><span class="hide-title">{{'alarm'|load_lang}} ({{imp[2][8]}})</span></a>
                             <a class="dropdown-item" href="/user"><span class="hide-title">{{'user_tool'|load_lang}}</span></a>
                             <a class="dropdown-item" href="/change"><span class="hide-title">{{'user_setting'|load_lang}}</span></a>
                             {% if imp[2][2] == 1 %}
@@ -166,8 +149,20 @@
                         </div>
                     </div>
                 </div>
+                <div class="navbar-alarm">
+                    {% if imp[2][8] != '0' %}
+                        <a class="navbar-alarm-item" id="navbar-alarm-color" href="/alarm">
+                            <i class="fa fa-solid fa-bell"></i><br>
+                        </a>
+                    {% else %}
+                        <a class="navbar-alarm-item" href="/alarm">
+                            <i class="fa fa-solid fa-bell"></i><br>
+                        </a>
+                    {% endif %}
+                </div>
                 <form method="post" action="/search" id="searchform" class="form-inline">
                     <div class="input-group">
+                        <button class="btn btn-secondary" id="navbar-random" onclick="location.href='/random'"><i class="fa fa-random"></i></button>
                         <input type="search" name="search" placeholder="{{'search'|load_lang}}" accesskey="f" class="form-control" id="searchInput" autocomplete="off">
                         <span class="input-group-btn">
                             <button formaction="/goto" name="go" value="view" id="searchGoButton" class="btn btn-secondary"><span class="fa fa-solid fa-magnifying-glass"></span></button>
@@ -177,6 +172,13 @@
                 </form>
             </nav>
         </div>
+        {% if imp[1][7][0] != '' %}
+            <div class="vision-top-notice-bg">
+                <div class="vision-top-notice">
+                    {{imp[1][7][0]|safe}}
+                </div>
+            </div>
+        {% endif %}
         <div class="menu-buttons">
             <a class="scroll-menu" href="#sidebar"><i class="fa fa-solid fa-bars"></i></a>
         </div>
@@ -273,7 +275,7 @@
                     </div>
                     <div class="sidebar-0-tool">
                         {% if imp[2][8] != '0' %}
-                            <a class="sidebar-0-item" id="nav-tabbar-color" href="/alarm">
+                            <a class="sidebar-0-item" id="navbar-alarm-color" href="/alarm">
                                 <i class="fa fa-solid fa-bell"></i>
                                 <span class="sidebar-0-item-sub">
                                     {{imp[2][8]}}
