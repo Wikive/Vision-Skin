@@ -4,13 +4,13 @@
 /* Max-width: 1023 데스크탑 마지노선 */
 @media (max-width: 1023px) {
     .vision .nav-wrapper .navbar {
-        padding: 0 0.5rem;
+        padding: 0.1rem 0.5rem;
     }
 
     .vision .nav-wrapper .navbar .form-inline {
         float: left;
         padding: 0;
-        padding-bottom: 0.37rem;
+        padding-bottom: 0.3rem;
     }
 
     .vision .nav-wrapper .navbar .form-inline .input-group {

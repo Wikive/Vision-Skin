@@ -26,10 +26,9 @@ function ringo_do_side_button_1() {
             if(text[for_a][6] === '') {
                 data += '<li><a class="recent-item" href="/w/'+ ringo_do_xss_encode(text[for_a][1]) + '">';
                 data += '<span class="recent-title">' + ringo_do_xss_encode(text[for_a][1]) + '</span>';
-                data += '<span class="recent-time">' + ringo_do_xss_encode(text[for_a][2].replace(/^([^ ]+) /, '')) + '</span></a></li>';
+                data += '<span class="recent-time">' + ringo_do_xss_encode(text[for_a][2].slice(5, -3)) + '</span></a></li>';
             } else {
-                data += '---<br>';
-                data += '--- | ---<br>';
+                data += '<li>[관리자에 의해 숨겨진 역사입니다!]</li>';
             }
         }
         document.getElementById('sidebar-1-list').innerHTML = data;
@@ -46,7 +45,7 @@ function ringo_do_side_button_2() {
         for(let for_a = 0; for_a < text.length; for_a++) {
             data += '<li><a class="recent-item" href="/thread/' + ringo_do_url_encode(text[for_a][3]) + '">';
             data += '<span class="recent-title">' + ringo_do_xss_encode(text[for_a][1]) + '</span>';
-            data += '<span class="recent-time">' + ringo_do_xss_encode(text[for_a][2].replace(/^([^ ]+) /, '')) + '</span></a></li>';
+            data += '<span class="recent-time">' + ringo_do_xss_encode(text[for_a][2].slice(5, -3)) + '</span></a></li>';
         }
         document.getElementById('sidebar-2-list').innerHTML = data;
     }).catch(function(error) {
@@ -62,7 +61,7 @@ function ringo_do_side_button_3() {
         for(let for_a = 0; for_a < text.length; for_a++) {
             data += '<li><a class="recent-item" href="'+ text[for_a][8] + ringo_do_xss_encode(text[for_a][1]) + '">';
             data += '<span class="recent-title">' + "[" + ringo_do_xss_encode(text[for_a][7]) + "] " + ringo_do_xss_encode(text[for_a][1]) + '</span>';
-            data += '<span class="recent-time">' + ringo_do_xss_encode(text[for_a][2].replace(/^([^ ]+) /, '')) + '</span></a></li>';
+            data += '<span class="recent-time">' + ringo_do_xss_encode(text[for_a][2].slice(5, -3)) + '</span></a></li>';
         }
         document.getElementById('sidebar-3-list').innerHTML = data;
     }).catch(function(error) {

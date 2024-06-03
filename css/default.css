@@ -205,7 +205,7 @@ del, s, strike {
 }
 
 .vision .nav-wrapper .navbar {
-    padding: 0 1rem;
+    padding: 0.2rem 1rem;
     border: 0;
     border-radius: 0;
 }
@@ -221,23 +221,31 @@ del, s, strike {
 }
 
 .vision .nav-wrapper .navbar .navbar-nav .nav-item {
-    margin: 0;
+    margin: 0.1rem;
     font-weight: 700;
 }
 
 .vision .nav-wrapper .navbar .navbar-nav .nav-item .fa {
     margin-right: 0.7rem;
-    font-size: 1rem;
+    font-size: 1.1rem;
+}
+
+.vision .nav-wrapper .navbar .navbar-nav .nav-item .dropdown-item .fa {
+    margin-right: 8px;
+    font-size: 1.05rem;
 }
 
 .vision .nav-wrapper .navbar .navbar-nav .nav-item .nav-link {
     color: var(--nav-color);
-    font-size: 1rem;
-    padding: 0.7rem 0.8rem;
+    font-size: 1.1rem;
+    padding: 0.6rem 0.8rem;
+    border-radius: 10px;
     line-height: 1.4rem;
 }
 
-.vision .nav-wrapper .navbar .navbar-nav .nav-item .nav-link:hover, .vision .nav-wrapper .navbar .navbar-nav .nav-item .nav-link:focus {
+.vision .nav-wrapper .navbar .navbar-nav .nav-item .nav-link:hover,
+.vision .nav-wrapper .navbar .navbar-nav .nav-item .nav-link:focus,
+.navbar-alarm:hover {
     background-color: var(--sub-color);
     transition: 0.3s;
 }
@@ -387,12 +395,14 @@ del, s, strike {
 
 .navbar-alarm {
     float: right;
-    font-size: 1rem;
+    font-size: 1.1rem;
     padding: 0.7rem 0.9rem;
     line-height: 1.4rem;
+    margin-left: 0.2rem;
+    border-radius: 10px;
 }
 
-.navbar-alarm-item {
+.navbar-alarm-item, .navbar-alarm-item:hover {
     color: var(--nav-color);
 }
 
@@ -660,6 +670,7 @@ del, s, strike {
     font-size: 0.9rem;
     text-align: right;
     padding-top: 2px;
+    opacity: 0.9;
 }
 
 /* 컨텐츠 수정 End */
