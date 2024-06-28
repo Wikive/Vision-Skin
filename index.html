@@ -14,7 +14,7 @@
         {{imp[3][3]|safe}}
         <link rel="stylesheet" href="/views/vision/css/style.css.cache_v12">
         <link rel="stylesheet" href="/views/vision/css/more.css.cache_v4">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sun-typeface/SUITE/fonts/static/woff2/SUITE.css">
+        <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
         {% if request.cookies.get('main_css_darkmode', '') == '1' %}
             {{imp[3][5]|safe}}
             <link rel="stylesheet" href="/views/vision/css/dark.css.cache_v6">
@@ -37,8 +37,11 @@
         {% endif %}
         <meta name="keywords" content="{{imp[0]}}">
         <meta name="description" content="{{imp[3][6]}}">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1">
+        <meta content="yes" name="apple-mobile-web-app-capable" />  
+        <meta content="minimum-scale=1.0, width=device-width, maximum-scale=1, user-scalable=no" name="viewport" />
         <meta property="og:type" content="website">
+        <meta name="theme-color" content="#696FFF">
     </head>
     <body class="vision">
         <div class="nav-wrapper">
@@ -310,20 +313,28 @@
                 <div class="sidebar-2">
                     <a class="sidebar-2-title" href="/recent_discuss"> {{'recent_discussion'|load_lang}} <i class="fa-solid fa-angle-right"></i></a>
                     <ul class="sidebar-2-list" id="sidebar-2-list">
-                        {% for i in range(7) %}
+                        {% for i in range(5) %}
                             <li><span id="sidebar-2-item">&nbsp;</span></li>
                         {% endfor %}
                     </ul>
                 </div>
                 <div class="sidebar-3">
-                    <a class="sidebar-3-title" href="https://2du.pythonanywhere.com/w/오픈나무%20공용"> 연합 {{'recent_change'|load_lang}} <i class="fa-solid fa-angle-right"></i></a>
+                    <a class="sidebar-3-title" href="/bbs/main"> 최근 게시글 <i class="fa-solid fa-angle-right"></i></a>
                     <ul class="sidebar-3-list" id="sidebar-3-list">
-                        {% for i in range(8) %}
+                        {% for i in range(5) %}
                             <li><span id="sidebar-3-item">&nbsp;</span></li>
                         {% endfor %}
                     </ul>
                 </div>
                 <div class="sidebar-4">
+                    <a class="sidebar-4-title" href="https://2du.pythonanywhere.com/w/오픈나무%20공용"> 연합 {{'recent_change'|load_lang}} <i class="fa-solid fa-angle-right"></i></a>
+                    <ul class="sidebar-4-list" id="sidebar-4-list">
+                        {% for i in range(8) %}
+                            <li><span id="sidebar-4-item">&nbsp;</span></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="sidebar-5">
                     {{imp[1][7][1]|safe}}
                 </div>
             </div>

@@ -1,7 +1,7 @@
 :root {
     --main-color: #2d2f34;
     --sub-color: #383b40;
-    --menu-button-color: #e0e0e0;
+    --menu-button-color: #777;
     --border-color: #555;
     --sub-border-color: #444;
     --body-color: black;
@@ -19,7 +19,7 @@
     --topic-color: #325a56;
 }
 
-button {
+.opennamu_main textarea, .opennamu_main input, .opennamu_main button, .opennamu_main select {
     background: var(--bg-color-3);
 }
 

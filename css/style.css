@@ -127,7 +127,7 @@ div.scroll-buttons {
     margin-top: 5px;
 }
 
-#out_link::before, .opennamu_link_out::before {
+.opennamu_main .opennamu_link_out::before {
     padding: 5px 2px;
     margin-right: 1.5px;
     background: transparent;
@@ -161,22 +161,24 @@ button:hover {
 }
 
 button#save, button#opennamu_save_button {
-    background-color: #696FFF;
+    background-color: var(--menu-button-color);
     color: white;
     margin-right: 5px;
 }
 
 button#save:hover, button#opennamu_save_button:hover {
-    background-color: #8183d3;
+    background-color: var(--menu-button-color);
+    opacity: 0.8;
 }
 
 button#preview, button#opennamu_preview_button {
-    background-color: #8ca5ec;
+    background-color: var(--sub-color);
     color: white;
 }
 
 button#preview:hover, button#opennamu_preview_button:hover {
-    background-color: #98a9d6;
+    background-color: var(--sub-color);
+    opacity: 0.8;
     color: white;
 }
 
@@ -243,4 +245,8 @@ th[rowspan], td[rowspan] {
 .nav-tabbar {
     position: fixed;
     bottom: 18px;
+}
+
+table {
+    background-color: transparent;
 }

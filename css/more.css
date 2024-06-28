@@ -6,30 +6,30 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* 수평선 */
-hr, .opennamu_footnote {
+.opennamu_main hr, .opennamu_main .opennamu_footnote {
 	margin: 1rem 0;
     border-color: var(--sub-border-color);
 }
 
 /* 링크 */
-.opennamu_link_out, .opennamu_link_inter {
+.opennamu_main .opennamu_link_out, .opennamu_link_inter {
     color: var(--link-color);
 }
 
 /* 리스트 */ 
-.opennamu_ul {
+.opennamu_main ul, .opennamu_main .opennamu_ul {
     padding-left: 0.7rem;
 }
 
-.opennamu_ul li, li {
+.opennamu_main .opennamu_ul li, li {
     margin: 0.4em 0 0.4em 1em;
 }
 
 /* 인용문 */
-blockquote {
+.opennamu_main blockquote {
 	background: var(--bg-color-1);
 	border: 1px var(--sub-border-color);
-	border-left: 5px solid var(--menu-button-color);
+	border-left: 5px solid var(--menu-button-color) !important;
 	border-right: 5px solid var(--menu-button-color);
 	padding: 1rem;
 	margin: 0.8rem 0;
@@ -56,12 +56,12 @@ a {
 	color: var(--a-color);
 }
 
-summary {
+.opennamu_main details summary {
     list-style: none;
     font-weight: bold;
 }
 
-td {
+.opennamu_main td {
     padding: 5px 10px;
 	border: 1px solid var(--border-color);
 }
@@ -81,10 +81,13 @@ html, body {
 	color: var(--text-color);
 }
 
+.opennamu_svg {
+	margin-left: 3px;
+}
+
 /* 최근 편집 디자인 */
-.opennamu_recent_change {
-	border-color: var(--border-color);
-	border-width: 2px 0;
+.opennamu_main .opennamu_recent_change {
+	border-bottom: 2px solid var(--border-color);
 	box-shadow: none;
 	padding: 10px 6px;
 	margin-top: -12px;
@@ -96,18 +99,19 @@ html, body {
 }
 
 /* 분류, 넘겨주기 알림 */
-#cate, .opennamu_category {
+#cate, .opennamu_category,
+.opennamu_main .opennamu_category {
     border: 1px solid var(--sub-border-color);
     border-radius: 15px;
     font-size: 0.9rem;
     margin-top: 0;
-    margin-bottom: 1rem;
+    margin-bottom: 0;
     padding: 5px 5px 5px 10px;
     display: inline-block;
     width: 100%;
 }
 
-#redirect, .opennamu_trace {
+.opennamu_main .opennamu_trace, .opennamu_redirect, #redirect {
 	background-color: var(--bg-color-2);
     border: 1px solid var(--sub-border-color);
     border-radius: 15px;
@@ -119,15 +123,36 @@ html, body {
 	margin-bottom: 0;
 }
 
+.opennamu_main pre {
+	border: 1px solid var(--border-color);
+}
+
+/* 사용자 정보 */
+.user_info_table {
+	width: 400px;
+	background-color: var(--bg-color-2);
+    border-radius: 18px;
+}
+
+.user_info_table tbody tr {
+	display: flex;
+    justify-content: flex-start;
+}
+
+.user_info_table tbody td {
+	border: 0;
+	padding: 7px 10px;
+}
+
 /* 토론 디자인 */
-.opennamu_comment {
+td.opennamu_comment {
 	max-width: 100%;
 	width: auto;
 	word-wrap: break-word;
 	position: relative;
 }
 
-.opennamu_comment_color_default, .opennamu_comment_color_green, .opennamu_comment_color_gray, .opennamu_comment_color_blue, .opennamu_comment_color_red {
+td.opennamu_comment_color_default, td.opennamu_comment_color_green, td.opennamu_comment_color_gray, td.opennamu_comment_color_blue, td.opennamu_comment_color_red {
 	width: 100%;
 	padding: 7px 10px;
     border-radius: 6px 6px 0px 0px;
@@ -136,11 +161,11 @@ html, body {
 	display: inline-block;
 }
 
-.opennamu_comment_color_gray {
+td.opennamu_comment_color_gray {
 	border: 1px solid #888;
 }
 
-.opennamu_comment_blind_not, #opennamu_comment_data_main {
+td.opennamu_comment_blind_not, td.opennamu_comment_data_main {
 	width: 100%;
 	padding: 13px;
 	border-radius: 0px 0px 6px 6px;
@@ -157,7 +182,7 @@ html, body {
     overflow: scroll;
 }
 
-.opennamu_comment_blind {
+td.opennamu_comment_blind {
 	width: 100%;
 	padding: 13px;
 	border-radius: 0px 0px 6px 6px;
@@ -168,13 +193,14 @@ html, body {
 }
 
 @media screen and (min-width: 701px) {
-	.opennamu_comment {
+	.opennamu_main .opennamu_comment {
 		min-width: 400px;
+		width: auto;
 	}
 }
 
 @media screen and (max-width: 700px) {
-	.opennamu_comment {
+	.opennamu_main .opennamu_comment {
 		width: 100%;
 	}
 }
@@ -215,66 +241,6 @@ html, body {
 	}
 }
 
-/* 폰트 불러오기 */
-@font-face {
-	font-family: 'Pretendard';
-	font-weight: 900;
-	font-display: block;
-	src: local('Pretendard Black'), url('/views/vision/fonts/woff2/Pretendard-Black.woff2') format('woff2'), url('/views/vision/fonts/woff/Pretendard-Black.woff') format('woff');
-}
-
-@font-face {
-	font-family: 'Pretendard';
-	font-weight: 800;
-	font-display: block;
-	src: local('Pretendard ExtraBold'), url('/views/vision/fonts/woff2/Pretendard-ExtraBold.woff2') format('woff2'), url('/views/vision/fonts/woff/Pretendard-ExtraBold.woff') format('woff');
-}
-
-@font-face {
-	font-family: 'Pretendard';
-	font-weight: 700;
-	font-display: block;
-	src: local('Pretendard Bold'), url('/views/vision/fonts/woff2/Pretendard-Bold.woff2') format('woff2'), url('/views/vision/fonts/woff/Pretendard-Bold.woff') format('woff');
-}
-
-@font-face {
-	font-family: 'Pretendard';
-	font-weight: 600;
-	font-display: block;
-	src: local('Pretendard SemiBold'), url('/views/vision/fonts/woff2/Pretendard-SemiBold.woff2') format('woff2'), url('/views/vision/fonts/woff/Pretendard-SemiBold.woff') format('woff');
-}
-
-@font-face {
-	font-family: 'Pretendard';
-	font-weight: 500;
-	font-display: block;
-	src: local('Pretendard Medium'), url('/views/vision/fonts/woff2/Pretendard-Medium.woff2') format('woff2'), url('/views/vision/fonts/woff/Pretendard-Medium.woff') format('woff');
-}
-
-@font-face {
-	font-family: 'Pretendard';
-	font-weight: 400;
-	font-display: block;
-	src: local('Pretendard Regular'), url('/views/vision/fonts/woff2/Pretendard-Regular.woff2') format('woff2'), url('/views/vision/fonts/woff/Pretendard-Regular.woff') format('woff');
-}
-
-@font-face {
-	font-family: 'Pretendard';
-	font-weight: 300;
-	font-display: block;
-	src: local('Pretendard Light'), url('/views/vision/fonts/woff2/Pretendard-Light.woff2') format('woff2'), url('/views/vision/fonts/woff/Pretendard-Light.woff') format('woff');
-}
-
-@font-face {
-	font-family: 'Pretendard';
-	font-weight: 200;
-	font-display: block;
-	src: local('Pretendard ExtraLight'), url('/views/vision/fonts/woff2/Pretendard-ExtraLight.woff2') format('woff2'), url('/views/vision/fonts/woff/Pretendard-ExtraLight.woff') format('woff');
-}
-
-@font-face {
-	font-family: 'Pretendard';
-	font-weight: 100;
-	font-display: block;
-	src: local('Pretendard Thin'), url('/views/vision/fonts/woff2/Pretendard-Thin.woff2') format('woff2'), url('/views/vision/fonts/woff/Pretendard-Thin.woff') format('woff');
+html, body {
+	over-flow-x: hidden;
 }
