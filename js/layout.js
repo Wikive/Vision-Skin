@@ -13,6 +13,21 @@ function ringo_do_url_encode(data) {
 }
 
 // event
+vision_user_info();
+function vision_user_info() {
+    let name = document.getElementById('sidebar-0-name1').innerHTML;
+        
+    fetch("/api/user_info/" + ringo_do_xss_encode(name)).then(function(res) {
+        return res.json();
+    }).then(function(text) {
+        let data = '';
+        for(let for_a = 0; for_a < text["data"].length; for_a++) {
+            data += text["data"][for_a]["level"] + ' (' + text["data"][for_a]["exp"] + ' / ' + text["data"][for_a]["max_exp"] + ')';
+        }
+        document.getElementById('sidebar-0-name3').innerHTML = data;
+    });
+}
+
 ringo_do_side_button_1();
 function ringo_do_side_button_1() {
     fetch("/api/recent_change/14").then(function(res) {
@@ -57,10 +72,10 @@ function ringo_do_side_button_3() {
         return res.json();
     }).then(function(text) {
         let data = '';
-        for(let for_a = 0; for_a < text.length; for_a++) {
-            data += '<li><a class="recent-item" href="/bbs/w/' + ringo_do_url_encode(text[for_a][set_id]) + '/' + ringo_do_url_encode(text[for_a][set_code]) + '">';
-            data += '<span class="recent-title">' + ringo_do_xss_encode(text[for_a][title]) + '</span>';
-            data += '<span class="recent-time">' + ringo_do_xss_encode(text[for_a][date].slice(11, -3)) + '</span></a></li>';
+        for(let for_a = 0; for_a < text["data"].length && for_a < 6; for_a++) {
+                data += '<li><a class="recent-item" href="/bbs/w/' + ringo_do_xss_encode(text["data"][for_a]["set_id"]) + '/' + ringo_do_xss_encode(text["data"][for_a]["set_code"]) + '">';
+                data += '<span class="recent-title">' + ringo_do_xss_encode(text["data"][for_a]["title"]) + '</span>';
+                data += '<span class="recent-time">' + ringo_do_xss_encode(text["data"][for_a]["date"].slice(11, -3)) + '</span></a></li>';
         }
         document.getElementById('sidebar-3-list').innerHTML = data;
     }).catch(function(error) {
@@ -83,6 +98,34 @@ function ringo_do_side_button_4() {
     }).catch(function(error) {
         document.getElementById('sidebar-4-item').innerHTML = 'API를 불러오지 못했습니다!';
     });
+}
+
+if(window.location.pathname === '/License') {
+    vision_license_1();
+    function vision_license_1() {
+        fetch("/api/version").then(function(res) {
+            return res.json();
+        }).then(function(text) {
+            let data = '';
+            for(let for_a = 0; for_a < text.length; for_a++) {
+                data += "Version:" + text[for_a]["version"];
+            }
+            document.getElementById('openNAMU_ver').innerHTML = data;
+        });
+    }
+
+    vision_license_2();
+    function vision_license_2() {
+        fetch("/api/skin_info").then(function(res) {
+            return res.json();
+        }).then(function(text) {
+            let data = '';
+            for(let for_a = 0; for_a < text.length; for_a++) {
+                data += "Version:" + text[for_a]["skin_ver"];
+            }
+            document.getElementById('Vision_ver').innerHTML = data;
+        });
+    }
 }
 
 // Dropdown

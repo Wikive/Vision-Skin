@@ -19,6 +19,15 @@
     --link-color: #090;
 }
 
+::-moz-selection {
+    background: var(--main-color);
+    color: #fff;
+ }
+ ::selection {
+    background: var(--main-color);
+    color: #fff;
+ }
+
 /* 태그 수정 */
 * {
     outline: none;
@@ -422,7 +431,7 @@ del, s, strike {
     width: 2.4rem;
     height: 2.3rem;
     margin-right: 5px;
-    line-height: 22px;
+    line-height: 26px;
 }
 
 /* 네비 수정 End */
@@ -468,13 +477,17 @@ del, s, strike {
     flex-direction: column;
 }
 
-.sidebar-0-name1 {
+div#sidebar-0-name1 {
     font-size: 19px;
     font-weight: 700;
 }
 
-.sidebar-0-name2 {
+div#sidebar-0-name2 {
     font-size: 13.7px;
+}
+
+div#sidebar-0-name3 {
+    font-size: 15.6px;
 }
 
 .sidebar-0-profile .profile-img {
@@ -533,9 +546,6 @@ del, s, strike {
     margin-left: 1rem;
 }
 
-.sidebar-3 {
-    display: none;
-}
 .sidebar-5 {
     position: -webkit-sticky;
     position: sticky;

@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html lang="{{'language_tag'|load_lang}}">
     <head>
+        <style id="ringo_add_style"></style>
+        <script defer src="/views/vision/js/skin_set_do.js.cache_v1"></script>
         <meta charset="utf-8">
         {% if imp[3][0] != 0 %}
             <title>{{imp[0]}} {{imp[3][0]}} - {{imp[1][0]}}</title>
         {% else %}
             <title>{{imp[0]}} - {{imp[1][0]}}</title>
         {% endif %}
-        <link rel="stylesheet" href="/views/vision/css/bootstrap.min.css.cache_v1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0-alpha.2/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.3/themes/base/jquery-ui.min.css" integrity="sha512-8PjjnSP8Bw/WNPxF6wkklW6qlQJdWJc/3w/ZQPvZ/1bjVDkrrSqLe9mfPYrMxtnzsXFPc434+u4FHLnLjXTSsg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="/views/vision/css/default.css.cache_v5">
         <link rel="stylesheet" href="/views/vision/css/default_mobile.css.cache_v2">
-        <link rel="stylesheet" href="/views/vision/css/jquery-ui.min.css.cache_v1">
         {{imp[3][3]|safe}}
         <link rel="stylesheet" href="/views/vision/css/style.css.cache_v12">
         <link rel="stylesheet" href="/views/vision/css/more.css.cache_v4">
-        <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
         {% if request.cookies.get('main_css_darkmode', '') == '1' %}
             {{imp[3][5]|safe}}
             <link rel="stylesheet" href="/views/vision/css/dark.css.cache_v6">
         {% endif %}
-        <style id="ringo_add_style"></style>
+        <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
         <link rel="shortcut icon" href="/image/favicon.ico">
         <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/1.4.1/jquery-migrate.min.js" integrity="sha512-t0ovA8ZOiDuaNN5DaQQpMn37SqIwp6avyoFQoW49hOmEYSRf8mTCY2jZkEVizDT+IZ9x+VHTZPpcaMA5t2d2zQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -27,7 +29,6 @@
         <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
         <script defer src="/views/vision/js/layout.js.cache_v3"></script>
         <script defer src="/views/vision/js/skin_set.js.cache_v6"></script>
-        <script src="https://kit.fontawesome.com/de96a6a0bf.js" crossorigin="anonymous"></script>
         {{imp[1][5]|safe}}
         {{imp[2][3]|safe}}
         {% if imp[3][0] != 0 %}
@@ -165,7 +166,7 @@
                 </div>
                 <form method="post" action="/search" id="searchform" class="form-inline">
                     <div class="input-group">
-                        <button class="btn btn-secondary" id="navbar-random" onclick="location.href='/random'"><i class="fa fa-random"></i></button>
+                        <a class="btn btn-secondary" id="navbar-random" href="/random"><i class="fa fa-random"></i></a>
                         <input type="search" name="search" placeholder="{{'search'|load_lang}}" accesskey="f" class="form-control" id="searchInput" autocomplete="off">
                         <span class="input-group-btn">
                             <button formaction="/goto" name="go" value="view" id="searchGoButton" class="btn btn-secondary"><span class="fa fa-solid fa-magnifying-glass"></span></button>
@@ -256,10 +257,8 @@
                             {% endif %}
                         </div>
                         <div class="sidebar-0-name">
-                            <div class="sidebar-0-name1">
-                                {{imp[2][10]}}
-                            </div>
-                            <div class="sidebar-0-name2">
+                            <div id="sidebar-0-name1">{{imp[2][10]}}</div>
+                            <div id="sidebar-0-name2">
                                 {% if imp[2][2] == 1 %}
                                     {% if imp[2][6] == '1' %}
                                         {% if 'owner' in imp[2][9] %}
@@ -273,6 +272,8 @@
                                 {% else %}
                                     IP User
                                 {% endif %}
+                            </div>
+                            <div id="sidebar-0-name3">
                             </div>
                         </div>
                     </div>

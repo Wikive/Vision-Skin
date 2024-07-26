@@ -56,6 +56,12 @@ a {
 	color: var(--a-color);
 }
 
+b i {
+	box-shadow: inset 0 -0.3em 0 var(--sub-color);
+	text-decoration: none;
+	font-style: normal;
+}
+
 .opennamu_main details summary {
     list-style: none;
     font-weight: bold;
@@ -239,8 +245,4 @@ td.opennamu_comment_blind {
 		color: var(--text-color-1);
 		border-radius: 20px;
 	}
-}
-
-html, body {
-	over-flow-x: hidden;
 }

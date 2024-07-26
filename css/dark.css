@@ -1,6 +1,6 @@
 :root {
     --main-color: #2d2f34;
-    --sub-color: #383b40;
+    --sub-color: #717171;
     --menu-button-color: #777;
     --border-color: #555;
     --sub-border-color: #444;
@@ -15,7 +15,7 @@
     --bg-color-2: #272727;
     --bg-color-3: #393939;
     --button-bg-color: #000;
-    --link-color: #090;
+    --link-color: #0b0;
     --topic-color: #325a56;
 }
 
