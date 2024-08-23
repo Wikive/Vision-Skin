@@ -32,6 +32,7 @@
 
     .vision .content-wrapper .vision-sidebar {
         width: 100%;
+        min-width: 100%;
     }
 
     .vision .content-wrapper .vision-content {

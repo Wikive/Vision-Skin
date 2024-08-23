@@ -1,6 +1,6 @@
 :root {
     --main-color: #2d2f34;
-    --sub-color: #717171;
+    --sub-color: #383b40;
     --menu-button-color: #777;
     --border-color: #555;
     --sub-border-color: #444;
@@ -19,8 +19,12 @@
     --topic-color: #325a56;
 }
 
-.opennamu_main textarea, .opennamu_main input, .opennamu_main button, .opennamu_main select {
-    background: var(--bg-color-3);
+.opennamu_main textarea, .opennamu_main input, .opennamu_main select {
+    background: var(--bg-color-0);
+}
+
+.opennamu_main button {
+    background: var(--menu-button-color);
 }
 
 html, body {

@@ -1,7 +1,8 @@
 :root {
-    --main-color: #696FFF; /* 위키 대표 색 */
-    --sub-color: #A8ACFF; /* 대표 색보단 약한 색 */
-    --menu-button-color: #696FFF; /* 위키 대표 색 */
+    --main-color: #696FFF;
+    --menu-button-color: #696FFF;
+    --sub-color: #A8ACFF;
+    --light-sub-color: #7E83FF;
     --border-color: #e1e8ed; /* 여기서 부터는 수정 안 해도 됩니다. */
     --sub-border-color: #ccc;
     --body-color: #f3f3f3;
@@ -20,11 +21,11 @@
 }
 
 ::-moz-selection {
-    background: var(--main-color);
+    background: var(--light-sub-color);
     color: #fff;
  }
  ::selection {
-    background: var(--main-color);
+    background: var(--light-sub-color);
     color: #fff;
  }
 
@@ -184,7 +185,6 @@ del, s, strike {
     color: gray;
 }
 /* 태그 수정 End */
-
 /* 백그라운드 색 지정 */
 .vision {
     background-color: var(--body-color);
@@ -277,7 +277,7 @@ del, s, strike {
 .vision .nav-wrapper .navbar .form-inline .form-control {
     font-size: 0.95rem;
     height: 2.3rem;
-    width: 13.6rem;
+    width: 15rem;
     padding: 0.4rem 0.8rem;
     border-color: var(--border-color);
     border-radius: 0;
@@ -454,6 +454,7 @@ del, s, strike {
 .sidebar-0-account {
     display: flex;
     flex-direction: row;
+    margin-bottom: 1rem;
 }
 
 .sidebar-0-profile {
@@ -496,13 +497,14 @@ div#sidebar-0-name3 {
 
 .sidebar-0-tool {
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+    flex-direction: column;
     font-size: 18px;
 }
 
-.sidebar-0-item {
-    margin: 8px 14px;
+.vision .content-wrapper .vision-sidebar .sidebar-0-item {
+    margin: 10px 20px;
+    font-size: 1rem;
+    font-weight: 700;
 }
 
 .vision .content-wrapper .vision-sidebar .sidebar-1-list,
@@ -512,38 +514,51 @@ div#sidebar-0-name3 {
     list-style: none;
 }
 
-.sidebar-0-title, .sidebar-1-title, .sidebar-2-title, .sidebar-3-title, .sidebar-4-title {
-    margin: 0.7rem 1rem;
+.vision .content-wrapper .vision-sidebar .sidebar-0-title,
+.vision .content-wrapper .vision-sidebar .sidebar-1-title,
+.vision .content-wrapper .vision-sidebar .sidebar-2-title,
+.vision .content-wrapper .vision-sidebar .sidebar-3-title,
+.vision .content-wrapper .vision-sidebar .sidebar-4-title {
+    margin: 0.7rem 1rem !important;
     font-weight: 700;
     font-size: 1.2rem;
 }
 
-.sidebar-1-title i, .sidebar-2-title i, .sidebar-3-title i, .sidebar-4-title i {
-    margin-left: 1rem;
+.vision .content-wrapper .vision-sidebar .fa {
+    margin-right: 0.5rem;
 }
 
 .vision .content-wrapper .vision-sidebar li {
     margin: 0.6rem 1rem;
-    white-space: nowrap;
 }
 
 .recent-title {
+    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
 .vision .content-wrapper .vision-sidebar a {
     color: var(--text-color);
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    justify-content: space-between;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
+
+.vision .content-wrapper .vision-sidebar .sidebar-angle {
+    float: right;
+    margin-left: 1rem;
+    line-height: 1.7rem;
+}
+
 
 .recent-time {
     font-size: .75rem;
     text-align: right;
     margin-left: 1rem;
+    float: right;
+    line-height: 1.5rem;
 }
 
 .sidebar-5 {
@@ -685,7 +700,7 @@ div#sidebar-0-name3 {
     background-color: var(--topic-color);
 }
 
-.last-edit {
+.last-edit, .page-view {
     font-size: 0.9rem;
     text-align: right;
     padding-top: 2px;
@@ -752,7 +767,7 @@ div#sidebar-0-name3 {
 }
 
 .dropdown-item {
-    padding: 4px 20px;
+    padding: 4px 34px 4px 20px;
     color: var(--text-color);
 }
 

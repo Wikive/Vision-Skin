@@ -62,16 +62,16 @@
                         <div class="dropdown-menu dropdown-menu-right nav-dropdown-menu" role="menu">
                             <a class="dropdown-item" href="/bbs/main"><span class="fa fa-file-text"></span><span class="hide-title">{{'bbs_main'|load_lang}}</span></a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/vote"><span class="fa fa-check-square-o"></span><span class="hide-title">{{'vote'|load_lang}}</span></a>
+                            <a class="dropdown-item" href="/vote"><i class="fa fa-solid fa-check-to-slot"></i><span class="hide-title">{{'vote'|load_lang}}</span></a>
                             <a class="dropdown-item" href="/upload"><span class="fa fa-upload"></span><span class="hide-title">{{'upload'|load_lang}}</span></a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="/list/document/all"><span class="fa fa-folder-open"></span><span class="hide-title">{{'all_document_list'|load_lang}}</span></a>
                             <a class="dropdown-item" href="/list/document/acl"><span class="fa fa-solid fa-shop-lock"></span><span class="hide-title">{{'acl_document_list'|load_lang}}</span></a>
                             <a class="dropdown-item" href="/list/document/need"><span class="fa fa-chain-broken"></span><span class="hide-title">{{'need_document'|load_lang}}</span></a>
-                            <a class="dropdown-item" href="/list/document/long"><span class="fa fa-file-text-o"></span><span class="hide-title">{{'long_page'|load_lang}}</span></a>
-                            <a class="dropdown-item" href="/list/document/short"><span class="fa fa-file-o"></span><span class="hide-title">{{'short_page'|load_lang}}</span></a>
+                            <a class="dropdown-item" href="/list/document/long"><i class="fa fa-solid fa-anchor-circle-check"></i><span class="hide-title">{{'long_page'|load_lang}}</span></a>
+                            <a class="dropdown-item" href="/list/document/short"><i class="fa fa-solid fa-seedling"></i><span class="hide-title">{{'short_page'|load_lang}}</span></a>
                             <a class="dropdown-item" href="/list/document/old"><span class="fa fa-solid fa-business-time"></span><span class="hide-title">{{'old_page'|load_lang}}</span></a>
-                            <a class="dropdown-item" href="/list/file"><span class="fa fa-file-image-o"></span><span class="hide-title">{{'image_file_list'|load_lang}}</span></a>
+                            <a class="dropdown-item" href="/list/file"><i class="fa fa-solid fa-images"></i><span class="hide-title">{{'image_file_list'|load_lang}}</span></a>
                             <a class="dropdown-item" href="/list/admin/auth_use"><span class="fa fa-solid fa-list-check"></span><span class="hide-title">{{'authority_use_list'|load_lang}}</span></a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="/other"><span class="fa fa-cogs"></span><span class="hide-title">{{'other_tool'|load_lang}}</span></a>
@@ -88,7 +88,7 @@
                             <div class="dropdown-menu dropdown-menu-right nav-dropdown-menu" role="menu">
                                 {% for added_top_menu in imp[1][6] %}
                                     <a class="dropdown-item" href="{{added_top_menu[1]}}">
-                                        <span class="fa fa-plus"></span>
+                                        <i class="fa fa-solid fa-link"></i>
                                         <span class="hide-title">{{added_top_menu[0]}}</span>
                                     </a>
                                 {% endfor %}
@@ -167,7 +167,7 @@
                 <form method="post" action="/search" id="searchform" class="form-inline">
                     <div class="input-group">
                         <a class="btn btn-secondary" id="navbar-random" href="/random"><i class="fa fa-random"></i></a>
-                        <input type="search" name="search" placeholder="{{'search'|load_lang}}" accesskey="f" class="form-control" id="searchInput" autocomplete="off">
+                        <input type="search" name="search" placeholder="검색하려면 여기에 입력하세요." accesskey="f" class="form-control" id="searchInput" autocomplete="off">
                         <span class="input-group-btn">
                             <button formaction="/goto" name="go" value="view" id="searchGoButton" class="btn btn-secondary"><span class="fa fa-solid fa-magnifying-glass"></span></button>
                             <button name="fulltext" value="search" id="searchSearchButton" class="btn btn-secondary"><span class="fa fa-arrow-right"></span></button>
@@ -236,6 +236,9 @@
                             <div class="last-edit">
                                 {{'last_edit_time'|load_lang}}: {{imp[3][1]}}
                             </div>
+                            <div class="page-view">
+                                {{'page_view'|load_lang}}: {{imp[3][7]}}
+                            </div>
                         {% endif %}
                     </div>
                 </div>
@@ -245,7 +248,7 @@
             </div>
             <div class="vision-sidebar" id="sidebar">
                 <div class="sidebar-0">
-                    <a class="sidebar-0-title" href="/user"> {{'user'|load_lang}} <i class="fa fa-solid fa-angle-right"></i></a>
+                    <a class="sidebar-0-title" href="/user"><i class="fa fa-user-large"></i> {{'user'|load_lang}} <i class="sidebar-angle fa-solid fa-angle-right"></i></a>
                     <div class="sidebar-0-account">
                         <div class="sidebar-0-profile">
                             {% if imp[2][2] == 0 %}
@@ -280,59 +283,50 @@
                     <div class="sidebar-0-tool">
                         {% if imp[2][8] != '0' %}
                             <a class="sidebar-0-item" id="navbar-alarm-color" href="/alarm">
-                                <i class="fa fa-solid fa-bell"></i>
+                                <i class="sidebar-angle fa-solid fa-bell"></i>
                                 <span class="sidebar-0-item-sub">
                                     {{imp[2][8]}}
                                 </span> 
                         {% else %}
                             <a class="sidebar-0-item" href="/alarm">
-                                <i class="fa fa-solid fa-bell"></i>
+                                <i class="fa fa-solid fa-bell"></i> {{'alarm'|load_lang}}
                             </a>
                         {% endif %}
                         <a class="sidebar-0-item" href="/change/skin_set">
-                            <i class="fa fa-solid fa-gears"></i>
+                            <i class="fa fa-solid fa-gears"></i> {{'skin_set'|load_lang}}
                         </a>
                         <a class="sidebar-0-item" href="/change">
-                            <i class="fa fa-solid fa-pen-to-square"></i>
+                            <i class="fa fa-solid fa-pen-to-square"></i> {{'user_setting'|load_lang}}
                         </a>
                         <a class="sidebar-0-item" href="/star_doc">
-                            <i class="fa fa-solid fa-heart"></i>
+                            <i class="fa fa-solid fa-heart"></i> {{'star_doc'|load_lang}}
                         </a>
-                        <a class="sidebar-0-item" href="/logout">
-                            <i class="fa fa-solid fa-right-from-bracket"></i>
+                        <a class="sidebar-0-item" href="/watch_list">
+                            <i class="fa fa-solid fa-eye"></i> {{'watchlist'|load_lang}}
                         </a>
                     </div>
                 </div>
                 <div class="sidebar-1">
-                    <a class="sidebar-1-title" href="/recent_changes"> {{'recent_change'|load_lang}} <i class="fa-solid fa-angle-right"></i></a>
+                    <a class="sidebar-1-title" href="/recent_changes"><i class="fa fa-solid fa-compass"></i> {{'recent_change'|load_lang}} <i class="sidebar-angle fa-solid fa-angle-right"></i></a>
                     <ul class="sidebar-1-list" id="sidebar-1-list">
-                        {% for i in range(14) %}
-                            <li><span id="sidebar-1-item">&nbsp;</span></li>
-                        {% endfor %}
-                    </ul>
+                        <li><span id="sidebar-1-item">[불러오는 중...]</span></li>
                 </div>
                 <div class="sidebar-2">
-                    <a class="sidebar-2-title" href="/recent_discuss"> {{'recent_discussion'|load_lang}} <i class="fa-solid fa-angle-right"></i></a>
+                    <a class="sidebar-2-title" href="/recent_discuss"><i class="fa fa-solid fa-comment-dots"></i> {{'recent_discussion'|load_lang}} <i class="sidebar-angle fa-solid fa-angle-right"></i></a>
                     <ul class="sidebar-2-list" id="sidebar-2-list">
-                        {% for i in range(5) %}
-                            <li><span id="sidebar-2-item">&nbsp;</span></li>
-                        {% endfor %}
+                        <li><span id="sidebar-2-item">[불러오는 중...]</span></li>
                     </ul>
                 </div>
                 <div class="sidebar-3">
-                    <a class="sidebar-3-title" href="/bbs/main"> 최근 게시글 <i class="fa-solid fa-angle-right"></i></a>
+                    <a class="sidebar-3-title" href="/bbs/main"><i class="fa fa-file-text"></i> 최근 게시글 <i class="sidebar-angle fa-solid fa-angle-right"></i></a>
                     <ul class="sidebar-3-list" id="sidebar-3-list">
-                        {% for i in range(5) %}
-                            <li><span id="sidebar-3-item">&nbsp;</span></li>
-                        {% endfor %}
+                        <li><span id="sidebar-3-item">[불러오는 중...]</span></li>
                     </ul>
                 </div>
                 <div class="sidebar-4">
-                    <a class="sidebar-4-title" href="https://2du.pythonanywhere.com/w/오픈나무%20공용"> 연합 {{'recent_change'|load_lang}} <i class="fa-solid fa-angle-right"></i></a>
+                    <a class="sidebar-4-title" href="https://2du.pythonanywhere.com/w/오픈나무%20공용"><i class="fa fa-solid fa-walkie-talkie"></i> 연합 {{'recent_change'|load_lang}} <i class="sidebar-angle fa-solid fa-angle-right"></i></a>
                     <ul class="sidebar-4-list" id="sidebar-4-list">
-                        {% for i in range(8) %}
-                            <li><span id="sidebar-4-item">&nbsp;</span></li>
-                        {% endfor %}
+                        <li><span id="sidebar-4-item">[불러오는 중...]</span></li>
                     </ul>
                 </div>
                 <div class="sidebar-5">

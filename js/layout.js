@@ -20,9 +20,10 @@ function vision_user_info() {
     fetch("/api/user_info/" + ringo_do_xss_encode(name)).then(function(res) {
         return res.json();
     }).then(function(text) {
-        let data = '';
-        for(let for_a = 0; for_a < text["data"].length; for_a++) {
-            data += text["data"][for_a]["level"] + ' (' + text["data"][for_a]["exp"] + ' / ' + text["data"][for_a]["max_exp"] + ')';
+        let data = "";
+        for(let for_a = 0; for_a < text['data'].length; for_a++) {
+            data += ringo_do_url_encode(text['data'][for_a]['level']) +
+            ' (' + ringo_do_url_encode(text['data'][for_a]['exp']) + ' / ' + ringo_do_url_encode(text['data'][for_a]['max_exp']) + ')';
         }
         document.getElementById('sidebar-0-name3').innerHTML = data;
     });
@@ -34,11 +35,11 @@ function ringo_do_side_button_1() {
         return res.json();
     }).then(function(text) {
         let data = '';
-        for(let for_a = 0; for_a < text.length; for_a++) {
+        for(let for_a = 0; for_a < text.length && for_a < 14; for_a++) {
             if(text[for_a][6] === '') {
                 data += '<li><a class="recent-item" href="/w/'+ ringo_do_xss_encode(text[for_a][1]) + '">';
-                data += '<span class="recent-title">' + ringo_do_xss_encode(text[for_a][1]) + '</span>';
-                data += '<span class="recent-time">' + ringo_do_xss_encode(text[for_a][2].slice(11, -3)) + '</span></a></li>';
+                data += '<span class="recent-time">' + ringo_do_xss_encode(text[for_a][2].slice(11, -3)) + '</span>';
+                data += '<span class="recent-title">' + ringo_do_xss_encode(text[for_a][1]) + '</span></a></li>';
             } else {
                 data += '<li>[관리자에 의해 숨겨진 역사입니다!]</li>';
             }
@@ -51,14 +52,14 @@ function ringo_do_side_button_1() {
 
 ringo_do_side_button_2();
 function ringo_do_side_button_2() {
-    fetch("/api/recent_discuss/5").then(function(res) {
+    fetch("/api/recent_discuss").then(function(res) {
         return res.json();
     }).then(function(text) {
         let data = '';
-        for(let for_a = 0; for_a < text.length; for_a++) {
+        for(let for_a = 0; for_a < text.length && for_a < 6; for_a++) {
             data += '<li><a class="recent-item" href="/thread/' + ringo_do_url_encode(text[for_a][3]) + '">';
-            data += '<span class="recent-title">' + ringo_do_xss_encode(text[for_a][1]) + '</span>';
-            data += '<span class="recent-time">' + ringo_do_xss_encode(text[for_a][2].slice(11, -3)) + '</span></a></li>';
+            data += '<span class="recent-time">' + ringo_do_xss_encode(text[for_a][2].slice(11, -3)) + '</span>';
+            data += '<span class="recent-title">' + ringo_do_xss_encode(text[for_a][1]) + '</span></a></li>';
         }
         document.getElementById('sidebar-2-list').innerHTML = data;
     }).catch(function(error) {
@@ -73,9 +74,9 @@ function ringo_do_side_button_3() {
     }).then(function(text) {
         let data = '';
         for(let for_a = 0; for_a < text["data"].length && for_a < 6; for_a++) {
-                data += '<li><a class="recent-item" href="/bbs/w/' + ringo_do_xss_encode(text["data"][for_a]["set_id"]) + '/' + ringo_do_xss_encode(text["data"][for_a]["set_code"]) + '">';
-                data += '<span class="recent-title">' + ringo_do_xss_encode(text["data"][for_a]["title"]) + '</span>';
-                data += '<span class="recent-time">' + ringo_do_xss_encode(text["data"][for_a]["date"].slice(11, -3)) + '</span></a></li>';
+            data += '<li><a class="recent-item" href="/bbs/w/' + ringo_do_xss_encode(text["data"][for_a]["set_id"]) + '/' + ringo_do_xss_encode(text["data"][for_a]["set_code"]) + '">';
+            data += '<span class="recent-time">' + ringo_do_xss_encode(text["data"][for_a]["date"].slice(11, -3)) + '</span>';
+            data += '<span class="recent-title">' + ringo_do_xss_encode(text["data"][for_a]["title"]) + '</span></a></li>';
         }
         document.getElementById('sidebar-3-list').innerHTML = data;
     }).catch(function(error) {
@@ -85,14 +86,14 @@ function ringo_do_side_button_3() {
 
 ringo_do_side_button_4();
 function ringo_do_side_button_4() {
-    fetch("https://namgall.wikiing.in/api/open_recent_changes/8").then(function(res) {
+    fetch("https://namgall.wikiing.in/api/open_recent_changes").then(function(res) {
         return res.json();
     }).then(function(text) {
         let data = '';
-        for(let for_a = 0; for_a < text.length; for_a++) {
+        for(let for_a = 0; for_a < text.length && for_a < 8; for_a++) {
             data += '<li><a class="recent-item" href="'+ text[for_a][8] + ringo_do_xss_encode(text[for_a][1]) + '">';
-            data += '<span class="recent-title">' + "[" + ringo_do_xss_encode(text[for_a][7]) + "] " + ringo_do_xss_encode(text[for_a][1]) + '</span>';
-            data += '<span class="recent-time">' + ringo_do_xss_encode(text[for_a][2].slice(11, -3)) + '</span></a></li>';
+            data += '<span class="recent-time">' + ringo_do_xss_encode(text[for_a][2].slice(11, -3)) + '</span>';
+            data += '<span class="recent-title">' + "[" + ringo_do_xss_encode(text[for_a][7]) + "] " + ringo_do_xss_encode(text[for_a][1]) + '</span></a></li>';
         }
         document.getElementById('sidebar-4-list').innerHTML = data;
     }).catch(function(error) {
